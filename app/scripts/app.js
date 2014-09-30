@@ -14,7 +14,7 @@ angular
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                templateUrl: 'views/dashboard.html',
+                controller: 'DashboardCtrl'
             });
     });
