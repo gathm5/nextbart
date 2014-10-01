@@ -27,8 +27,31 @@ angular.module('nextBartApp')
                         destination = 'CIVC';
                     }
                     return 'http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=' +
-                        origin + '&dest=' + destination + '&date=now&key=MW9S-E7SL-26DU-VV8V&b=2&a=2&l=1';
+                        origin + '&dest=' + destination + '&date=now&key=' + key;
+                },
+                depart: function (origin, destination) {
+                    if (!origin) {
+                        origin = 'ASHB';
+                    }
+                    if (!destination) {
+                        destination = 'CIVC';
+                    }
+                    return 'http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=' +
+                        origin + '&arrive=' + destination + '&date=now&key=' + key;
                 }
+            },
+            fare: function (origin, destination) {
+                if (!origin) {
+                    origin = '12th';
+                }
+                if (!destination) {
+                    destination = 'embr';
+                }
+                return 'http://api.bart.gov/api/sched.aspx?cmd=fare&orig=' +
+                    origin + '&dest=' + destination + '&date=today&key=' + key;
+            },
+            stations: function () {
+                return 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=' + key;
             }
         };
 

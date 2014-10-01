@@ -4,7 +4,8 @@ angular.module('nextBartApp')
     .service('$utilities', [
         '$http',
         '$q',
-        function UtilitiesService($http, $q) {
+        '$storage',
+        function UtilitiesService($http, $q, $storage) {
             // AngularJS will instantiate a singleton by calling "new" on this function
             var x2js = new X2JS();
 
@@ -16,6 +17,17 @@ angular.module('nextBartApp')
             // Returns a promise
             function ajax(config) {
                 var deferred = $q.defer();
+                if (config.cache) {
+                    var key = config.url;
+                    var value = $storage.getData(key);
+                    if (value) {
+                        deferred.resolve({
+                            data: value,
+                            status: 200
+                        })
+                        return deferred.promise;
+                    }
+                }
                 $http
                     .get(config.url, {
                         transformResponse: function (xml) {
@@ -29,6 +41,9 @@ angular.module('nextBartApp')
                             data: data,
                             status: status
                         });
+                        if (config.cache) {
+                            $storage.storeData(config.url, data);
+                        }
                     })
                     .error(function (data, status) {
                         deferred.reject({

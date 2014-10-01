@@ -11,6 +11,11 @@ angular.module('nextBartApp')
                     return $utilities.$ajax({
                         url: $api.schedule.arrive(origin, destination)
                     });
+                },
+                depart: function (origin, destination) {
+                    return $utilities.$ajax({
+                        url: $api.schedule.depart(origin, destination)
+                    });
                 }
             };
         }

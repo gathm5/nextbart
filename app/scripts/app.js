@@ -20,5 +20,23 @@ angular
                         controller: 'DashboardCtrl'
                     }
                 }
+            })
+            .state('stations', {
+                url: '/stations',
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/station-list.html',
+                        controller: 'StationListCtrl'
+                    }
+                }
+            })
+            .state('fare', {
+                url: '/fare',
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/fare-calculator.html',
+                        controller: 'FareCalculatorCtrl'
+                    }
+                }
             });
     });
