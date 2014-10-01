@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('nextBartApp')
-    .service('$trainInfoService', [
+    .service('$scheduleService', [
         '$api',
         '$utilities',
-        function TrainInformationService($api, $utilities) {
+        function TrainScheduleService($api, $utilities) {
             // AngularJS will instantiate a singleton by calling "new" on this function
             return {
-                count: function () {
+                arrive: function (origin, destination) {
                     return $utilities.$ajax({
-                        url: $api.count()
+                        url: $api.schedule.arrive(origin, destination)
                     });
                 }
             };
