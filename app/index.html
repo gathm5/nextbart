@@ -18,7 +18,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/catchBart.css">
     <!-- endbuild -->
 </head>
 <body ng-app="nextBartApp">
@@ -28,7 +28,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="container" data-ui-view=""></div>
+<div class="container" data-ui-view="HomeView"></div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
@@ -70,7 +70,6 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
 <script src="scripts/services/api-reference-service.js"></script>
 <script src="scripts/controllers/dashboard.js"></script>
 <script src="scripts/controllers/menu-panel.js"></script>
@@ -80,6 +79,7 @@
 <script src="scripts/services/utilities-service.js"></script>
 <script src="scripts/services/local-storage.js"></script>
 <script src="scripts/services/train-information-service.js"></script>
+<script src="scripts/services/train-routes-service.js"></script>
 <!-- endbuild -->
 </body>
 </html>

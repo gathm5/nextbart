@@ -14,7 +14,11 @@ angular
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl'
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/dashboard.html',
+                        controller: 'DashboardCtrl'
+                    }
+                }
             });
     });

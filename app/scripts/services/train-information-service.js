@@ -13,12 +13,11 @@ angular.module('nextBartApp')
                 count: function () {
                     deferred = $q.defer();
                     $http
-                        .get($api.trainCount(), {
-                            transformResponse: function (data) {
-                                console.log(data);
-                                var json = $utilities.xml2json(data);
-                                console.log('\n\n\n', json);
-                                return json;
+                        .get($api.count(), {
+                            transformResponse: function (xml) {
+                                var x2js = new X2JS();
+                                var jsonObj = x2js.xml_str2json(xml);
+                                return jsonObj;
                             }
                         })
                         .success(function (data, status) {
@@ -26,9 +25,9 @@ angular.module('nextBartApp')
                                 data: data,
                                 status: status
                             });
-                        })
+                        });
                     return deferred.promise;
                 }
-            }
+            };
         }
     ]);
