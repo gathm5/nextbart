@@ -16,8 +16,8 @@ angular.module('nextBartApp')
             $routeService.routeInfo(6).then(function (data) {
                 $scope.routeInfo = data;
             });
-            $scheduleService.arrive().then(function (data) {
+            /*$scheduleService.arrive().then(function (data) {
                 $scope.arrivals = data;
-            });
+            });*/
         }
     ]);
