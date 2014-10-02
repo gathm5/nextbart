@@ -52,6 +52,12 @@ angular.module('nextBartApp')
             },
             stations: function () {
                 return 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=' + key;
+            },
+            schedules: function (origin) {
+                if (!origin) {
+                    origin = '12th';
+                }
+                return 'http://api.bart.gov/api/sched.aspx?cmd=stnsched&orig=' + origin + '&key=' + key;
             }
         };
 

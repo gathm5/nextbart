@@ -16,6 +16,6 @@ angular.module('nextBartApp')
                 favorite: function () {
                     return favorites;
                 }
-            }
+            };
         }
     ]);

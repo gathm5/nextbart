@@ -12,6 +12,11 @@ angular.module('nextBartApp')
                         url: $api.stations(),
                         cache: true
                     });
+                },
+                schedules: function () {
+                    return $utilities.$ajax({
+                        url: $api.schedules()
+                    });
                 }
             };
         }

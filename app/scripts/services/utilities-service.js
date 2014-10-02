@@ -24,7 +24,7 @@ angular.module('nextBartApp')
                         deferred.resolve({
                             data: value,
                             status: 200
-                        })
+                        });
                         return deferred.promise;
                     }
                 }

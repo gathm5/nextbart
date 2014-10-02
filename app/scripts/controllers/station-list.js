@@ -8,5 +8,8 @@ angular.module('nextBartApp')
             $stationService.stations().then(function (stations) {
                 $scope.stations = stations.data.root.stations.station;
             });
+            $stationService.schedules().then(function (schedules) {
+                $scope.schedules = schedules.data.root.station.item;
+            });
         }
     ]);
