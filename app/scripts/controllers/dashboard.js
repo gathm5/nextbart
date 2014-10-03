@@ -3,19 +3,22 @@
 angular.module('nextBartApp')
     .controller('DashboardCtrl', [
         '$scope',
-        '$routeService',
-        '$trainInfoService',
-        '$scheduleService',
-        function ($scope, $routeService, $trainInfoService, $scheduleService) {
-            $trainInfoService.count().then(function (data) {
-                $scope.train = data;
+        '$trainRoute',
+        '$trainInfo',
+        '$trainSchedule',
+        '$station',
+        function ($scope, $trainRoute, $trainInfo, $trainSchedule, $station) {
+            $trainInfo.count().then(function (data) {
+                //$scope.train = data;
             });
-            $routeService.routes().then(function (data) {
-                $scope.routes = data;
+            $trainRoute.routes().then(function (data) {
+                //$scope.routes = data;
             });
-            $routeService.routeInfo(6).then(function (data) {
-                $scope.routeInfo = data;
+            $trainRoute.routeInfo(6).then(function (data) {
+                //$scope.routeInfo = data;
             });
-            $scheduleService.arrive();
+            $station.schedules().then(function (schedules) {
+                $scope.schedules = schedules;
+            });
         }
     ]);

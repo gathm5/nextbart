@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nextBartApp')
-    .service('$fareService', [
+    .service('$fare', [
         '$api',
         '$utilities',
         function FareService($api, $utilities) {

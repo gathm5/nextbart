@@ -38,5 +38,14 @@ angular
                         controller: 'FareCalculatorCtrl'
                     }
                 }
+            })
+            .state('location', {
+                url: '/locate',
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/find-bart-station.html',
+                        controller: 'FindBartStationCtrl'
+                    }
+                }
             });
     });
