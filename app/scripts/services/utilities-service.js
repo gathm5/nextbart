@@ -8,12 +8,30 @@ angular.module('nextBartApp')
         function UtilitiesService($http, $q, $storage) {
             // AngularJS will instantiate a singleton by calling "new" on this function
             var x2js = new X2JS();
+            var jsonObj;
 
-            function convertToJSON(xml) {
-                var jsonObj = x2js.xml_str2json(xml);
-                return jsonObj;
+            //Lat Long Calculation
+            function distance(origin, destination, unit) {
+                var ranLat1 = Math.PI * origin.latitude / 180;
+                var radLat2 = Math.PI * destination.latitude / 180;
+                //var radLong1 = Math.PI * lon1 / 180;
+                //var radLong2 = Math.PI * lon2 / 180;
+                var theta = origin.longitude - desination.longitude;
+                var radTheta = Math.PI * theta / 180;
+                var dist = Math.sin(ranLat1) * Math.sin(radLat2) + Math.cos(ranLat1) * Math.cos(radLat2) * Math.cos(radTheta);
+                dist = Math.acos(dist);
+                dist = dist * 180 / Math.PI;
+                dist = dist * 60 * 1.1515;
+                if (unit === "K") {
+                    dist = dist * 1.609344;
+                }
+                if (unit === "N") {
+                    dist = dist * 0.8684;
+                }
+                return dist;
             }
 
+            // Ajax
             // Returns a promise
             function ajax(config) {
                 var deferred = $q.defer();
@@ -31,8 +49,7 @@ angular.module('nextBartApp')
                 $http
                     .get(config.url, {
                         transformResponse: function (xml) {
-                            var x2js = new X2JS();
-                            var jsonObj = x2js.xml_str2json(xml);
+                            jsonObj = x2js.xml_str2json(xml);
                             return jsonObj;
                         }
                     })
@@ -55,8 +72,8 @@ angular.module('nextBartApp')
             }
 
             return {
-                xml2json: convertToJSON,
-                $ajax: ajax
+                $ajax: ajax,
+                $distance: distance
             };
         }
     ]);
