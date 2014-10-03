@@ -322,11 +322,22 @@ module.exports = function (grunt) {
                         src: [
                             '*.{ico,png,txt}',
                             '.htaccess',
+                            'config.xml',
                             '*.html',
                             'views/{,*/}*.html',
                             'images/{,*/}*.{webp}',
                             'fonts/*',
                             'scripts/libs/xml2json.js'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        dot: true,
+                        flatten: true,
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            'build_properties/gitpush.sh',
+                            'build_properties/.gitignore'
                         ]
                     },
                     {
