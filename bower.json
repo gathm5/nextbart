@@ -1,6 +1,7 @@
 {
     "name": "next-bart",
     "version": "0.0.0",
+    "gitSync": "../cloud/catchbart",
     "dependencies": {
         "fastclick": "~1.0.3",
         "angular": "1.2.15",

@@ -22,6 +22,7 @@ module.exports = function (grunt) {
         yeoman: {
             // configurable paths
             app: require('./bower.json').appPath || 'app',
+            gitSync: require('./bower.json').git || '../cloud/catchbart',
             dist: 'dist'
         },
 
@@ -324,7 +325,8 @@ module.exports = function (grunt) {
                             '*.html',
                             'views/{,*/}*.html',
                             'images/{,*/}*.{webp}',
-                            'fonts/*'
+                            'fonts/*',
+                            'scripts/libs/xml2json.js'
                         ]
                     },
                     {
@@ -340,6 +342,20 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            //Copy app source files
+            github: {
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.dist %>',
+                        dest: '<%= yeoman.gitSync %>',
+                        src: [
+                            '**'
+                        ]
+                    }
+                ]
             }
         },
 
@@ -428,18 +444,19 @@ module.exports = function (grunt) {
         'bowerInstall',
         'less',
         'useminPrepare',
-        'inline_angular_templates',
         'concurrent:dist',
         'autoprefixer',
         'concat',
         'ngmin',
         'copy:dist',
+        'inline_angular_templates',
         'cdnify',
         'cssmin',
         'uglify',
-        'rev',
+        //'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'copy:github'
     ]);
 
     grunt.registerTask('default', [
