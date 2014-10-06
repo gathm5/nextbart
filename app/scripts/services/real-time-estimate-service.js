@@ -11,6 +11,11 @@ angular.module('nextBartApp')
                     return $utilities.$ajax({
                         url: $api.estimate(origin)
                     });
+                },
+                planner: function (origin, destination, mode) {
+                    return  $utilities.$ajax({
+                        url: $api.planner(origin, destination, mode)
+                    });
                 }
             };
         }

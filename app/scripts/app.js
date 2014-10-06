@@ -12,7 +12,7 @@ angular
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
-            .state('home', {
+            .state('dashboard', {
                 url: '/',
                 views: {
                     'HomeView@': {
@@ -22,7 +22,7 @@ angular
                 }
             })
             .state('stations', {
-                url: '/stations',
+                url: '/stations/:mode',
                 views: {
                     'HomeView@': {
                         templateUrl: 'views/station-list.html',

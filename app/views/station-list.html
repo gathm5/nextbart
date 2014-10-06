@@ -1,15 +1,8 @@
 <div class="station-list">
     <ul>
-        <li data-ng-repeat="station in stations">
+        <li data-ng-repeat="station in stations.list" data-ng-click="stations.select(station)">
             <div>
                 {{station}}
-            </div>
-        </li>
-    </ul>
-    <ul>
-        <li data-ng-repeat="schedule in schedules">
-            <div>
-                {{schedule}}
             </div>
         </li>
     </ul>

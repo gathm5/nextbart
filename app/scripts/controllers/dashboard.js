@@ -39,10 +39,19 @@ angular.module('nextBartApp')
                 }
             }
 
-            findEstimation();
+            function searchBart() {
+                $estimate
+                    .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'arrive')
+                    .then(function (results) {
+                        $scope.travel.results = results;
+                    });
+            }
 
             //Scope Variables
             $scope.travel = station;
+            $scope.travel.search = searchBart;
+
+            findEstimation();
 
             $scope.$on('Recall', function () {
                 findEstimation();
