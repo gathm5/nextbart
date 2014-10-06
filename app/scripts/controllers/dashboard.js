@@ -43,7 +43,7 @@ angular.module('nextBartApp')
                 $estimate
                     .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'arrive')
                     .then(function (results) {
-                        $scope.travel.results = results;
+                        $scope.travel.results = results.data.root;
                     });
             }
 
