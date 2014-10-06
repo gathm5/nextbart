@@ -58,6 +58,15 @@ angular.module('nextBartApp')
                     origin = '12th';
                 }
                 return 'http://api.bart.gov/api/sched.aspx?cmd=stnsched&orig=' + origin + '&key=' + key;
+            },
+            estimate: function (origin) {
+                if (!origin) {
+                    origin = 'RICH';
+                }
+                return 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=' + origin + '&key=' + key;
+            },
+            planner: function () {
+                return 'http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=24th&dest=rock&key=' + key;
             }
         };
 

@@ -2,50 +2,47 @@
 
 angular.module('nextBartApp')
     .directive('timeLapse', [
-        function () {
+        '$interval',
+        function ($interval) {
             return {
-                template: '<div class="time-lapse"></div>',
+                template: '<div class="time-lapse">{{time}}</div>',
                 restrict: 'E',
                 scope: {
-                    timer: '='
+                    timer: '@'
                 },
-                link: function postLink(scope, element, attrs) {
-                    var time = 0.0, min = 0, sec = 0;
-                    if (attrs.timer) {
-                        time = attrs.timer;
-                    }
-
-                    if (time.indexOf('.') > -1) {
-                        min = time.split('.')[0];
-                        sec = time.split('.')[1];
-                        min = parseInt(min);
-                        sec = parseInt(sec);
-                    }
-                    else {
-                        min = parseInt(time);
-                    }
-
-                    function timing() {
-                        var seconds = 60;
-
-                        function secondPassed() {
-                            var minutes = Math.round((seconds - 30) / 60);
-                            var remainingSeconds = seconds % 60;
-                            if (remainingSeconds < 10) {
-                                remainingSeconds = "0" + remainingSeconds;
+                link: function postLink(scope, element, attr) {
+                    var counter, calculatedTime, time, timePassed = scope.timer, regex = /^\d+$/;
+                    function execute() {
+                        if (!regex.test(timePassed)) {
+                            scope.$emit('Next');
+                            scope.time = timePassed;
+                            return;
+                        }
+                        time = parseInt(timePassed) * 60;
+                        calculatedTime = time;
+                        function countdown() {
+                            if (calculatedTime === 520) {
+                                scope.$emit('Recall');
                             }
-                            document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
-                            if (seconds == 0) {
-                                clearInterval(countdownTimer);
-                                document.getElementById('countdown').innerHTML = "Buzz Buzz";
-                            } else {
-                                seconds--;
+                            if (calculatedTime <= 0) {
+                                $interval.cancel(counter);
+                                scope.$emit('Lapsed');
+                                return;
                             }
+                            calculatedTime -= 1;
+                            scope.time = calculatedTime;
                         }
 
-                        var countdownTimer = setInterval('secondPassed()', 1000);
+                        counter = $interval(countdown, 1000);
                     }
 
+                    execute();
+
+                    attr.$observe('timer', function (timer) {
+                        timePassed = timer;
+                        $interval.cancel(counter);
+                        execute();
+                    });
                 }
             };
         }
