@@ -65,7 +65,8 @@ angular.module('nextBartApp')
                 }
                 return 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=' + origin + '&key=' + key;
             },
-            planner: function (origin, destination, mode) {
+            planner: function (origin, destination, mode, options) {
+                var attach = '';
                 if (!origin) {
                     origin = '12th';
                 }
@@ -75,7 +76,15 @@ angular.module('nextBartApp')
                 if (!mode) {
                     mode = 'arrive';
                 }
-                return 'http://api.bart.gov/api/sched.aspx?cmd=' + mode + '&orig=' + origin + '&dest=' + destination + '&key=' + key;
+                if (options) {
+                    if (options.before) {
+                        attach += '&before=' + options.before;
+                    }
+                    if (options.after) {
+                        attach += '&after=' + options.after;
+                    }
+                }
+                return 'http://api.bart.gov/api/sched.aspx?cmd=' + mode + '&orig=' + origin + '&dest=' + destination + attach + '&key=' + key;
             }
         };
 

@@ -7,7 +7,10 @@ angular.module('nextBartApp')
         '$favoriteService',
         '$estimate',
         function ($scope, $activeSearch, $favoriteService, $estimate) {
-            var estimate;
+            var estimate, plannerOptions = {
+                before: 0,
+                after: 4
+            };
 
             var station = {
                 origin: $activeSearch.from() || null,
@@ -41,7 +44,7 @@ angular.module('nextBartApp')
 
             function searchBart() {
                 $estimate
-                    .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'arrive')
+                    .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                     .then(function (results) {
                         $scope.travel.results = results.data.root;
                     });

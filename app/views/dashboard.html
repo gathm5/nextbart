@@ -7,7 +7,8 @@
         <span data-ng-if="!travel.destination">Select Destination</span>
         {{travel.destination}}
     </div>
-    <button class="button" style="padding: 20px;" data-ng-if="travel.origin && travel.destination" data-ng-click="travel.search()">
+    <button class="button" style="padding: 20px;" data-ng-if="travel.origin && travel.destination"
+            data-ng-click="travel.search()">
         Search for schedules
     </button>
     <div class="time-lapse">
@@ -16,7 +17,11 @@
     <div class="view-next-set">
         <span>View next schedules</span>
     </div>
-    <div>
-        {{travel.results}}
-    </div>
+    <ul>
+        <li data-ng-repeat="trip in travel.results.schedule.request.trip">
+            <div>
+                {{trip.leg}}
+            </div>
+        </li>
+    </ul>
 </div>
