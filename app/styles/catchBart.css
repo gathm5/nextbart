@@ -8,4 +8,7 @@ body {
   background-color: #245e94;
   background-image: url('../images/background-black.png');
 }
+.bingo-board table {
+  width: 100%;
+}
 /*# sourceMappingURL=catchBart.css.map */

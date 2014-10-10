@@ -9,8 +9,9 @@ angular.module('bingoApp')
                 board: '='
             },
             controller: function ($scope) {
+                $scope.selected = [];
                 $scope.select = function (item) {
-                    console.log(item, 'is clicked');
+                    $scope.selected.push(item);
                 }
             }
         };
