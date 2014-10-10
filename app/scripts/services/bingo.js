@@ -22,9 +22,11 @@ angular.module('bingoApp', [])
             function pickRandomProperty(obj) {
                 var result;
                 var count = 0;
-                for (var prop in obj)
-                    if (Math.random() < 1 / ++count)
+                for (var prop in obj) {
+                    if (Math.random() < 1 / ++count) {
                         result = prop;
+                    }
+                }
                 return result;
             }
 
@@ -53,6 +55,66 @@ angular.module('bingoApp', [])
                 return data;
             }
 
+            function winningPattern() {
+                var straight = [], diagonal = [], scattered = [];
+
+                function straighten(start, side) {
+
+                    var result = [];
+                    for (var i = 0; i < 5; i += 1) {
+                        if (side === 0) {
+                            result.push([start, i]);
+                        }
+                        else {
+                            result.push([i, start]);
+                        }
+                    }
+                    return result;
+
+                }
+
+                function diagonalize(start, side) {
+                    var result = [];
+                    if (side === 0) {
+                        for (var i = 0; i < 5; i += 1) {
+                            result.push([start, i]);
+                            start += 1;
+                        }
+                        return result;
+                    }
+                    for (var i = 0; i < 5; i += 1) {
+                        start -= 1;
+                        result.push([start, i]);
+                    }
+                    return result;
+                }
+
+                straight.push(straighten(0, 0));
+                straight.push(straighten(0, 1));
+
+                straight.push(straighten(1, 0));
+                straight.push(straighten(1, 1));
+
+                straight.push(straighten(2, 0));
+                straight.push(straighten(2, 1));
+
+                straight.push(straighten(3, 0));
+                straight.push(straighten(3, 1));
+
+                straight.push(straighten(4, 0));
+                straight.push(straighten(4, 1));
+
+                diagonal.push(diagonalize(0, 0));
+                diagonal.push(diagonalize(5, 1));
+
+                return {
+                    pattern: {
+                        straights: straight,
+                        diagonals: diagonal
+                    }
+                };
+            }
+
             function constructBoard() {
                 var board = [];
                 board.push(generateData(5, 'b'));
@@ -71,8 +133,10 @@ angular.module('bingoApp', [])
 
             game.actions.pick = generateData;
             game.actions.construct = constructBoard;
+            game.actions.pattern = winningPattern;
 
             return game;
         }());
+        window.bingo = bingo;
         return bingo;
     });

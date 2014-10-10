@@ -7,7 +7,8 @@ angular
         'ngSanitize',
         'ngRoute',
         'ngTouch',
-        'ui.router'
+        'ui.router',
+        'bingoApp'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
@@ -47,8 +48,17 @@ angular
                         controller: 'FindBartStationCtrl'
                     }
                 }
+            })
+            .state('bingo', {
+                url: '/bingo',
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/',
+                        controller: ''
+                    }
+                }
             });
     })
-    .run(function ($rootScope, $state) {
+    .run(function ($rootScope, $state, $bingo) {
         $rootScope.$state = $state;
     });
