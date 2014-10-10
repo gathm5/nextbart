@@ -1,0 +1,9 @@
+<div class="bingo-board">
+    <table>
+        <tr data-ng-repeat="block in board">
+            <td data-ng-repeat="item in block" data-ng-click="select(item)">
+                {{item.substr(1)}}
+            </td>
+        </tr>
+    </table>
+</div>

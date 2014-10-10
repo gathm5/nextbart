@@ -8,7 +8,8 @@ angular.module('bingoApp', [])
             var game = {
                 data: {},
                 actions: {},
-                board: []
+                board: [],
+                pattern: []
             };
 
             function generator(start, length) {
@@ -107,11 +108,9 @@ angular.module('bingoApp', [])
                 diagonal.push(diagonalize(0, 0));
                 diagonal.push(diagonalize(5, 1));
 
-                return {
-                    pattern: {
-                        straights: straight,
-                        diagonals: diagonal
-                    }
+                game.pattern = {
+                    straights: straight,
+                    diagonals: diagonal
                 };
             }
 
@@ -125,16 +124,18 @@ angular.module('bingoApp', [])
                 game.board = board;
             }
 
-            game.data.b = generator(1, 15);
-            game.data.i = generator(16, 15);
-            game.data.n = generator(31, 15);
-            game.data.g = generator(46, 15);
-            game.data.o = generator(61, 15);
+            function bootstrap() {
+                game.data.b = generator(1, 15);
+                game.data.i = generator(16, 15);
+                game.data.n = generator(31, 15);
+                game.data.g = generator(46, 15);
+                game.data.o = generator(61, 15);
 
-            game.actions.pick = generateData;
-            game.actions.construct = constructBoard;
-            game.actions.pattern = winningPattern;
-
+                constructBoard();
+                winningPattern();
+                generateData();
+            }
+            bootstrap();
             return game;
         }());
         window.bingo = bingo;

@@ -11,7 +11,7 @@ angular
         'bingoApp'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/bingo');
         $stateProvider
             .state('dashboard', {
                 url: '/',
@@ -53,8 +53,8 @@ angular
                 url: '/bingo',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/',
-                        controller: ''
+                        templateUrl: 'views/play-board.html',
+                        controller: 'PlayBoardCtrl'
                     }
                 }
             });
