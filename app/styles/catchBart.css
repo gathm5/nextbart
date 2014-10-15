@@ -39,6 +39,7 @@ body {
 body {
   background-color: #245e94;
   background-image: url('../images/background-black.png');
+  color: #fff;
 }
 .dashboard .origin {
   padding: 10px;
