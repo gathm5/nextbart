@@ -1,11 +1,11 @@
 <div class="dashboard">
     <div class="origin" style="padding: 20px;" data-ng-click="$state.go('stations', {mode: 'origin'})">
         <span data-ng-if="!travel.origin">Select Origin</span>
-        {{travel.origin}}
+        {{travel.origin.name}}
     </div>
     <div class="destination" style="padding: 20px;" data-ng-click="$state.go('stations', {mode: 'destination'})">
         <span data-ng-if="!travel.destination">Select Destination</span>
-        {{travel.destination}}
+        {{travel.destination.name}}
     </div>
     <button class="button" style="padding: 20px;" data-ng-if="travel.origin && travel.destination"
             data-ng-click="travel.search()">
@@ -17,10 +17,11 @@
     <div class="view-next-set">
         <span>View next schedules</span>
     </div>
+    <clock data-ng-if="travel.results.schedule.request.trip"></clock>
     <ul>
         <li data-ng-repeat="trip in travel.results.schedule.request.trip">
             <div>
-                {{trip.leg}}
+                {{trip.leg._origTimeMin}} and will reach at {{trip.leg._destTimeMin}}
             </div>
         </li>
     </ul>
