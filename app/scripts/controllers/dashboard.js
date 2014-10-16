@@ -50,20 +50,27 @@ angular.module('nextBartApp')
                     });
             }
 
+            function swap() {
+                var temp = $scope.travel.origin;
+                $scope.travel.origin = $scope.travel.destination;
+                $scope.travel.destination = temp;
+                $scope.travel.results = null;
+            }
+
             //Scope Variables
             $scope.travel = station;
             $scope.travel.search = searchBart;
 
-            findEstimation();
+            //findEstimation();
 
             $scope.$on('Recall', function () {
-                findEstimation();
+                //findEstimation();
             });
             $scope.$on('Next', function () {
-                findEstimation(true);
+                //findEstimation(true);
             });
             $scope.$on('Lapsed', function () {
-                findEstimation();
+                //findEstimation();
             });
         }
     ]);

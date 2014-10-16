@@ -4,7 +4,7 @@ angular.module('nextBartApp')
     .directive('clock', function ($interval) {
         return {
             templateUrl: 'views/directives/clock.html',
-            restrict: 'E',
+            restrict: 'EA',
             replace: true,
             link: function postLink(scope) {
                 var datetime, hours, minutes, seconds, mode, timer, tempDate;
