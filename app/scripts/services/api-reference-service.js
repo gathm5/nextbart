@@ -77,7 +77,7 @@ angular.module('nextBartApp')
                     mode = 'arrive';
                 }
                 if (options) {
-                    if (options.before) {
+                    if (options.before !== undefined) {
                         attach += '&before=' + options.before;
                     }
                     if (options.after) {

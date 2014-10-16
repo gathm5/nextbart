@@ -9,7 +9,7 @@ angular.module('nextBartApp')
         function ($scope, $activeSearch, $favoriteService, $estimate) {
             var estimate, plannerOptions = {
                 before: 0,
-                after: 4
+                after: 5
             };
 
             var station = {
@@ -20,7 +20,7 @@ angular.module('nextBartApp')
             function findEstimation(next) {
                 if ($scope.travel.origin) {
                     $estimate
-                        .estimate()
+                        .estimate($scope.travel.origin.abbr)
                         .then(function (estimated) {
                             var idx = 0;
                             estimate = estimated.data.root.station;

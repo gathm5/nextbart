@@ -10,7 +10,6 @@ angular.module('nextBartApp')
         function ($scope, $station, $activeSearch, $state, $stateParams) {
             var mode = $stateParams.mode;
             $scope.stations = {};
-            $scope.stations.mode = mode;
             $station.stations().then(function (stations) {
                 $scope.stations.list = stations.data.root.stations.station;
             });
