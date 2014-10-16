@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nextBartApp')
-    .directive('clock', function ($interval) {
+    .directive('watchClock', function ($interval) {
         return {
             templateUrl: 'views/directives/clock.html',
             restrict: 'EA',

@@ -47,6 +47,13 @@ angular.module('nextBartApp')
                     .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                     .then(function (results) {
                         $scope.travel.results = results.data.root;
+                        try {
+                            if ($scope.travel.results.schedule.request.trip.leg._origTimeMin) {
+                                var split = $scope.travel.results.schedule.request.trip.leg._origTimeMin.split(':');
+                                $scope.travel.timer = parseInt(split[1]);
+                            }
+                        } catch (e) {
+                        }
                     });
             }
 
