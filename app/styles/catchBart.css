@@ -58,6 +58,10 @@ ul,
 li {
   list-style: none;
 }
+.clock {
+  text-align: right;
+  padding: 5px;
+}
 .menu-panel li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
@@ -65,12 +69,29 @@ li {
 }
 .dashboard .origin {
   padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+}
+.dashboard .swap {
+  padding: 10px;
+  text-align: center;
 }
 .dashboard .destination {
   padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
 }
 .dashboard .time-lapse {
   padding: 10px;
+}
+.dashboard .search-button {
+  width: 100%;
+  padding: 10px 0;
+}
+.dashboard .trip-divider {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .dashboard .view-next-set {
   padding: 10px;

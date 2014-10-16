@@ -55,6 +55,8 @@ angular.module('nextBartApp')
                 $scope.travel.origin = $scope.travel.destination;
                 $scope.travel.destination = temp;
                 $scope.travel.results = null;
+                $activeSearch.setFrom($scope.travel.origin);
+                $activeSearch.setTo($scope.travel.destination);
             }
 
             //Scope Variables
