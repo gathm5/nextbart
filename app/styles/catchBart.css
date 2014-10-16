@@ -30,6 +30,12 @@
     opacity: 1.0;
   }
 }
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 html,
 body {
   width: 100%;
@@ -44,6 +50,14 @@ body {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
 .dashboard .origin {
   padding: 10px;
 }
@@ -55,5 +69,16 @@ body {
 }
 .dashboard .view-next-set {
   padding: 10px;
+}
+.station-list input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 5px;
+  border: 1px solid grey;
+}
+.station-list li {
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*# sourceMappingURL=catchBart.css.map */

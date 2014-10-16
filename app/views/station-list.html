@@ -1,5 +1,5 @@
 <div class="station-list">
-    <input type="text" data-ng-model="stationFilter"/>
+    <input type="text" data-ng-model="stationFilter" autofocus="" placeholder="Search for a station"/>
     <ul>
         <li data-ng-repeat="station in stations.list | filter:stationFilter" data-ng-click="stations.select(station)">
             <div>

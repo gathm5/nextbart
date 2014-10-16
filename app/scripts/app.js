@@ -47,8 +47,21 @@ angular
                         controller: 'FindBartStationCtrl'
                     }
                 }
+            })
+            .state('menu', {
+                url: '/menu',
+                views: {
+                    'HomeView@': {
+                        templateUrl: 'views/menu-panel.html',
+                        controller: 'MenuPanelCtrl'
+                    }
+                }
             });
     })
     .run(function ($rootScope, $state) {
         $rootScope.$state = $state;
+        document.addEventListener('menubutton', function (e) {
+            e.preventDefault();
+            $state.go('menu');
+        }, false);
     });
