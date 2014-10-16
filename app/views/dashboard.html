@@ -1,4 +1,5 @@
 <div class="dashboard">
+    <clock></clock>
     <div class="origin" style="padding: 20px;" data-ng-click="$state.go('stations', {mode: 'origin'})">
         <span data-ng-if="!travel.origin">Select Origin</span>
         {{travel.origin.name}}
@@ -17,7 +18,6 @@
     <div class="view-next-set">
         <span>View next schedules</span>
     </div>
-    <clock data-ng-if="travel.results.schedule.request.trip"></clock>
     <ul>
         <li data-ng-repeat="trip in travel.results.schedule.request.trip">
             <div data-ng-if="trip.leg.length">
