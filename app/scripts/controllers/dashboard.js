@@ -60,6 +60,7 @@ angular.module('nextBartApp')
             //Scope Variables
             $scope.travel = station;
             $scope.travel.search = searchBart;
+            $scope.travel.swap = swap;
 
             //findEstimation();
 
