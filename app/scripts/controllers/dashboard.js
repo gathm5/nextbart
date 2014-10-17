@@ -47,6 +47,7 @@ angular.module('nextBartApp')
                     .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                     .then(function (results) {
                         $scope.travel.results = results.data.root;
+                        console.log('$scope.travel.results\n', $scope.travel.results);
                         try {
                             if ($scope.travel.results.schedule.request.trip.leg._origTimeMin) {
                                 var split = $scope.travel.results.schedule.request.trip.leg._origTimeMin.split(':');
