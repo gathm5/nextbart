@@ -16,7 +16,7 @@ angular
                 url: '/',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/dashboard.html',
+                        templateUrl: '/views/dashboard.html',
                         controller: 'DashboardCtrl'
                     }
                 }
@@ -25,7 +25,7 @@ angular
                 url: '/stations/:mode',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/station-list.html',
+                        templateUrl: '/views/station-list.html',
                         controller: 'StationListCtrl'
                     }
                 }
@@ -34,7 +34,7 @@ angular
                 url: '/fare',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/fare-calculator.html',
+                        templateUrl: '/views/fare-calculator.html',
                         controller: 'FareCalculatorCtrl'
                     }
                 }
@@ -43,7 +43,7 @@ angular
                 url: '/locate',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/find-bart-station.html',
+                        templateUrl: '/views/find-bart-station.html',
                         controller: 'FindBartStationCtrl'
                     }
                 }
@@ -52,7 +52,7 @@ angular
                 url: '/menu',
                 views: {
                     'HomeView@': {
-                        templateUrl: 'views/menu-panel.html',
+                        templateUrl: '/views/menu-panel.html',
                         controller: 'MenuPanelCtrl'
                     }
                 }
