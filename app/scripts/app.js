@@ -9,7 +9,7 @@ angular
         'ngTouch',
         'ui.router'
     ])
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('dashboard', {
@@ -57,6 +57,7 @@ angular
                     }
                 }
             });
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
     .run(function ($rootScope, $state) {
         $rootScope.$state = $state;
