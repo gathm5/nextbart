@@ -4,17 +4,18 @@ angular.module('nextBartApp')
     .controller('DashboardCtrl', [
         '$scope',
         '$activeSearch',
-        '$favoriteService',
+        '$favorite',
         '$estimate',
-        function ($scope, $activeSearch, $favoriteService, $estimate) {
+        function ($scope, $activeSearch, $favorite, $estimate) {
             var estimate, plannerOptions = {
                 before: 0,
                 after: 5
             };
 
+            var favorite = $favorite.get();
             var station = {
-                origin: $activeSearch.from() || null,
-                destination: $activeSearch.to() || null
+                origin: $activeSearch.from() || favorite.origin || null,
+                destination: $activeSearch.to() || favorite.destination || null
             };
 
             function findEstimation(next) {
@@ -56,6 +57,10 @@ angular.module('nextBartApp')
                         } catch (e) {
                         }
                     });
+                $favorite.set({
+                    origin: $scope.travel.origin,
+                    destination: $scope.travel.destination
+                });
             }
 
             function swap() {
