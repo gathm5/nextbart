@@ -3,9 +3,14 @@
 angular.module('nextBartApp')
     .directive('watchClock', function ($interval) {
         return {
-            templateUrl: 'views/directives/clock.html',
-            restrict: 'EA',
-            replace: true,
+            template: '<div class="clock">' +
+                '<span>Now</span>' +
+                '<span>{{time.hours}}</span>' +
+                '<span class="colon animation-blink">:</span>' +
+                '<span>{{time.minutes}}</span>' +
+                '<span>{{time.mode}}</span>' +
+                '</div>',
+            restrict: 'E',
             link: function postLink(scope) {
                 var datetime, hours, minutes, seconds, mode, timer, tempDate;
 
@@ -21,7 +26,8 @@ angular.module('nextBartApp')
                     var ampm = hours >= 12 ? 'pm' : 'am';
                     hours = hours % 12;
                     hours = hours ? hours : 12;
-                    minutes = minutes < 10 ? '0' + minutes : minutes;
+                    minutes = '00' + minutes;
+                    minutes = minutes.slice(-2);
                     return {
                         hours: hours,
                         minutes: minutes,
@@ -48,12 +54,12 @@ angular.module('nextBartApp')
 
                 timer = $interval(function () {
                     if (scope.time.seconds < 59) {
-                        scope.time.seconds += 3;
+                        scope.time.seconds += 1;
                     }
                     else {
                         calculate();
                     }
-                }, 3000);
+                }, 1000);
 
                 scope.$on('$destroy', function () {
                     $interval.cancel(timer);

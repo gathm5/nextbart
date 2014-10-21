@@ -56,9 +56,14 @@ angular.module('nextBartApp')
                                 }
                                 var time = new Date(leg._origTimeDate + ' ' + leg._origTimeMin);
                                 var curTime = new Date();
-                                var seconds = Math.round(Math.abs(curTime - time) / (1000));
+                                var seconds = Math.round((time - curTime) / (1000));
                                 var minutes = seconds / 60;
-                                $scope.travel.timer = Math.round(minutes);
+                                if (minutes > 0) {
+                                    $scope.travel.timer = Math.round(minutes);
+                                }
+                                else {
+                                    $scope.travel.timer = 'Missed? Search again';
+                                }
                             }
                         } catch (e) {
                         }
