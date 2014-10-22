@@ -21,6 +21,15 @@ angular
                     }
                 }
             })
+            .state('details', {
+                url: '/details/:id',
+                views: {
+                    'HomeView@': {
+                        templateUrl: '/views/route-details.html',
+                        controller: 'RouteDetailsCtrl'
+                    }
+                }
+            })
             .state('stations', {
                 url: '/stations/:mode',
                 views: {

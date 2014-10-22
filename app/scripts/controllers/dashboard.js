@@ -14,9 +14,26 @@ angular.module('nextBartApp')
 
             var favorite = $favorite.get();
             var station = {
-                origin: $activeSearch.from() || favorite.origin || null,
-                destination: $activeSearch.to() || favorite.destination || null
+                origin: null,
+                destination: null
             };
+
+            function populate() {
+                if ($activeSearch.from()) {
+                    station.origin = $activeSearch.from();
+                }
+                if ($activeSearch.to()) {
+                    station.destination = $activeSearch.to();
+                }
+                if (!station.origin && !station.destination) {
+                    station.origin = favorite.origin;
+                    station.destination = favorite.destination;
+                }
+                $scope.travel = station;
+                if (station.origin && station.destination) {
+                    searchBart();
+                }
+            }
 
             function findEstimation(next) {
                 if ($scope.travel.origin) {
@@ -49,6 +66,7 @@ angular.module('nextBartApp')
                     .then(function (results) {
                         $scope.travel.results = results.data.root;
                         try {
+                            $activeSearch.setRoutes(results.data.root.schedule.request.trip);
                             if ($scope.travel.results.schedule.request.trip.length) {
                                 var leg = $scope.travel.results.schedule.request.trip[0].leg;
                                 if (leg.length) {
@@ -85,7 +103,7 @@ angular.module('nextBartApp')
             }
 
             //Scope Variables
-            $scope.travel = station;
+            populate();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;
 
