@@ -125,6 +125,10 @@ li {
 .ba-depart-info .value {
   font-size: 1em;
   text-transform: lowercase;
+  color: #00ff00;
+}
+.ba-depart-info .cost {
+  color: #fffa32;
 }
 .time-lapse {
   text-align: center;

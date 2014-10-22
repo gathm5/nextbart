@@ -6,13 +6,9 @@ angular.module('nextBartApp')
             templateUrl: '/views/directives/clock.html',
             restrict: 'E',
             link: function postLink(scope) {
-                var datetime, hours, minutes, seconds, mode, timer, tempDate;
+                var datetime, timer, tempDate;
 
-                scope.time = {
-                    hours: hours,
-                    minutes: minutes,
-                    seconds: seconds
-                };
+                scope.time = {};
 
                 function formatAMPM(date) {
                     var hours = date.getHours();
@@ -32,28 +28,17 @@ angular.module('nextBartApp')
                 function calculate() {
                     datetime = new Date();
                     tempDate = formatAMPM(datetime);
-                    hours = tempDate.hours;
-                    minutes = tempDate.minutes;
-                    mode = tempDate.mode;
-                    seconds = datetime.getSeconds();
                     scope.time = {
-                        hours: hours,
-                        minutes: minutes,
-                        mode: mode,
-                        seconds: seconds
+                        hours: tempDate.hours,
+                        minutes: tempDate.minutes,
+                        mode: tempDate.mode,
+                        seconds: datetime.getSeconds()
                     };
                 }
 
                 calculate();
 
-                timer = $interval(function () {
-                    if (scope.time.seconds < 59) {
-                        scope.time.seconds += 1;
-                    }
-                    else {
-                        calculate();
-                    }
-                }, 1000);
+                timer = $interval(calculate, 1000);
 
                 scope.$on('$destroy', function () {
                     $interval.cancel(timer);

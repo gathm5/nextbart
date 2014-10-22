@@ -62,10 +62,11 @@ angular.module('nextBartApp')
                                     $scope.travel.timer = Math.round(minutes);
                                 }
                                 else {
-                                    $scope.travel.timer = 'Missed? Search again';
+                                    $scope.travel.timer = 'Missed? Search again!';
                                 }
                             }
                         } catch (e) {
+                            $scope.travel.timer = 'Scheduler not loaded';
                         }
                     });
                 $favorite.set({
