@@ -24,6 +24,9 @@ input[type="tel"],
 input[type="color"] {
   font-size: 16px;
 }
+.cool-font {
+  font-family: 'Courgette', cursive;
+}
 .animation-blink {
   -webkit-animation-name: blinker;
   -webkit-animation-duration: 1s;
@@ -92,13 +95,20 @@ li {
   list-style: none;
 }
 .clock {
-  text-align: right;
+  text-align: center;
   padding: 5px;
+  font-size: 1.4em;
+  font-family: 'Courgette', cursive;
 }
 .ba-depart-info .inline {
   display: inline-block;
-  width: 50%;
+  width: 42.5%;
   margin-left: -4px;
+}
+.ba-depart-info .arrow {
+  width: 15%;
+  font-size: 1.2em;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
 .ba-depart-info .left {
   text-align: left;
@@ -108,6 +118,32 @@ li {
 }
 .ba-depart-info .center {
   text-align: center;
+}
+.ba-depart-info .label {
+  font-size: 0.9em;
+}
+.ba-depart-info .value {
+  font-size: 1em;
+  text-transform: lowercase;
+}
+.time-lapse {
+  text-align: center;
+  margin: 15px auto;
+  width: 150px;
+  height: 150px;
+  border: 15px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) inset;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  font-family: 'Courgette', cursive;
+}
+.time-lapse .lapse {
+  font-size: 1.9em;
+  margin-top: 30px;
+}
+.time-lapse .message {
+  font-size: 1.4em;
+  margin-top: 15px;
 }
 .menu-panel li {
   padding: 10px 15px;
@@ -137,7 +173,7 @@ li {
 }
 .dashboard .trip-divider {
   background: rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  padding: 5px 5px 5px 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .dashboard .view-next-set {

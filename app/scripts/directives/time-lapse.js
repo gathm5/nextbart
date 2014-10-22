@@ -5,8 +5,7 @@ angular.module('nextBartApp')
         '$interval',
         function ($interval) {
             return {
-                template: '<div class="time-lapse" data-ng-if="!passed">In {{show.min}}<span class="colon animation-blink">:</span>{{show.sec}}</div>' +
-                    '<div class="time-lapse message" data-ng-if="passed">{{passed}}</div>',
+                templateUrl: '/views/directives/time-lapse.html',
                 restrict: 'E',
                 scope: {
                     timer: '@'

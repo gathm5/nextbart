@@ -3,13 +3,7 @@
 angular.module('nextBartApp')
     .directive('watchClock', function ($interval) {
         return {
-            template: '<div class="clock">' +
-                '<span>Now</span>' +
-                '<span>{{time.hours}}</span>' +
-                '<span class="colon animation-blink">:</span>' +
-                '<span>{{time.minutes}}</span>' +
-                '<span>{{time.mode}}</span>' +
-                '</div>',
+            templateUrl: '/views/directives/clock.html',
             restrict: 'E',
             link: function postLink(scope) {
                 var datetime, hours, minutes, seconds, mode, timer, tempDate;

@@ -1,0 +1,10 @@
+<div class="time-lapse">
+    <div class="lapse" data-ng-if="!passed">
+        {{show.min}}
+        <span class="colon animation-blink">:</span>
+        {{show.sec}}
+    </div>
+    <div class="lapse message" data-ng-if="passed">
+        {{passed}}
+    </div>
+</div>
