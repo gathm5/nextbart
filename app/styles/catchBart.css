@@ -149,6 +149,15 @@ li {
   font-size: 1.4em;
   margin-top: 15px;
 }
+.back-button .button {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 5px;
+}
+.back-button .button.ng-click-active {
+  background: rgba(0, 0, 0, 0.5);
+}
 .menu-panel li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
@@ -159,6 +168,9 @@ li {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.3);
 }
+.dashboard .origin i {
+  float: right;
+}
 .dashboard .swap {
   padding: 10px;
   text-align: center;
@@ -167,6 +179,9 @@ li {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.3);
+}
+.dashboard .destination i {
+  float: right;
 }
 .dashboard .time-lapse {
   padding: 10px;
@@ -204,5 +219,8 @@ li {
 }
 .find-bart-station ul li a {
   color: #ffd700;
+}
+.route-details {
+  padding: 5px;
 }
 /*# sourceMappingURL=catchBart.css.map */

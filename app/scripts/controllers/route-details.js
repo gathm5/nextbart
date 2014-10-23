@@ -9,7 +9,7 @@ angular.module('nextBartApp')
         function ($scope, $state, $stateParams, $activeSearch) {
             var idx = $stateParams.id;
             var route = $activeSearch.getRoute(idx);
-            $scope.route = route;
+            $scope.trip = route;
             console.log(route);
         }
     ]);

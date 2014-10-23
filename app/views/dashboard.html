@@ -2,14 +2,20 @@
     <watch-clock></watch-clock>
     <div class="origin" data-ng-click="$state.go('stations', {mode: 'origin'})">
         <span data-ng-if="!travel.origin">Select Origin</span>
-        {{travel.origin.name}}
+        <span data-ng-if="travel.origin">
+            {{travel.origin.name}}
+            <i class="fa fa-pencil"></i>
+        </span>
     </div>
     <div class="swap" data-ng-click="travel.swap()">
         <i class="fa fa-refresh rotate-90 fa-2x"></i>
     </div>
     <div class="destination" data-ng-click="$state.go('stations', {mode: 'destination'})">
         <span data-ng-if="!travel.destination">Select Destination</span>
-        {{travel.destination.name}}
+        <span data-ng-if="travel.destination">
+            {{travel.destination.name}}
+            <i class="fa fa-pencil"></i>
+        </span>
     </div>
     <button class="search-button button" data-ng-if="travel.origin && travel.destination"
             data-ng-click="travel.search()">

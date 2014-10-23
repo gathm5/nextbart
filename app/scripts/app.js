@@ -70,10 +70,13 @@ angular
     })
     .run(function ($rootScope, $state) {
         $rootScope.$state = $state;
+        $rootScope.back = function () {
+
+        };
         document.addEventListener('menubutton', function (e) {
             e.preventDefault();
             $state.go('menu');
         }, false);
-        document.getElementsByClassName('container')[0].style.minHeight = document.body.clientHeight + 'px';
+        //document.getElementsByClassName('container')[0].style.minHeight = document.body.clientHeight + 'px';
         document.body.style.minHeight = document.body.clientHeight + 'px';
     });

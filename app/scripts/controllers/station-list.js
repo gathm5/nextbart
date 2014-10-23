@@ -5,14 +5,20 @@ angular.module('nextBartApp')
         '$scope',
         '$station',
         '$activeSearch',
+        '$storage',
         '$state',
         '$stateParams',
-        function ($scope, $station, $activeSearch, $state, $stateParams) {
+        function ($scope, $station, $activeSearch, $storage, $state, $stateParams) {
             var mode = $stateParams.mode;
-            $scope.stations = {};
-            $station.stations().then(function (stations) {
-                $scope.stations.list = stations.data.root.stations.station;
-            });
+            $scope.stations = {
+                list: $storage.getData('station-list', $storage.PERSISTENT)
+            };
+            if (!$scope.stations.list) {
+                $station.stations().then(function (stations) {
+                    $scope.stations.list = stations.data.root.stations.station;
+                    $storage.storeData('station-list', stations.data.root.stations.station, $storage.PERSISTENT);
+                });
+            }
             $scope.stations.select = function (station) {
                 if (mode === 'origin') {
                     $activeSearch.setFrom(station);
