@@ -162,6 +162,17 @@ li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.menu-panel li span {
+  font-size: 2.5em;
+}
+.menu-panel li div {
+  font-size: 1.25em;
+}
+.menu-panel li.ng-click-active {
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
 .dashboard .origin {
   padding: 10px;
