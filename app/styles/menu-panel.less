@@ -1,7 +1,19 @@
 .menu-panel {
-  li {
-    padding: 10px 15px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
+    li {
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+        span {
+            font-size: 2.5em;
+        }
+        div {
+            font-size: 1.25em;
+        }
+        &.ng-click-active {
+            background: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+    }
 }
