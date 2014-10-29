@@ -7,6 +7,7 @@ angular
         'ngSanitize',
         'ngRoute',
         'ngTouch',
+        'ngAnimate',
         'ui.router'
     ])
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {

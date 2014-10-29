@@ -59,6 +59,42 @@ input[type="color"] {
     opacity: 1.0;
   }
 }
+.animate-repeat.ng-enter {
+  -webkit-animation: fadeInLeft 200ms;
+  animation: fadeInLeft 200ms;
+}
+.animate-repeat.ng-leave {
+  -webkit-animation: fadeOutRight 200ms;
+  animation: fadeOutRight 200ms;
+}
+.animate-rotate.ng-enter {
+  -webkit-animation: rotateIn 200ms;
+  animation: rotateIn 200ms;
+}
+.animate-entrance.ng-enter {
+  -webkit-animation: lightSpeedIn 200ms;
+  animation: lightSpeedIn 200ms;
+}
+.animate-entrance.ng-leave {
+  -webkit-animation: lightSpeedOut 200ms;
+  animation: lightSpeedOut 200ms;
+}
+.animate-bounce-left.ng-enter {
+  -webkit-animation: bounceInLeft 400ms;
+  animation: bounceInLeft 400ms;
+}
+.animate-bounce-left.ng-leave {
+  -webkit-animation: bounceOutLeft 400ms;
+  animation: bounceOutLeft 400ms;
+}
+.animate-bounce-right.ng-enter {
+  -webkit-animation: bounceInRight 400ms;
+  animation: bounceInRight 400ms;
+}
+.animate-bounce-right.ng-leave {
+  -webkit-animation: bounceOutRight 400ms;
+  animation: bounceOutRight 400ms;
+}
 *,
 *:before,
 *:after {

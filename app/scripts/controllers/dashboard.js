@@ -6,7 +6,8 @@ angular.module('nextBartApp')
         '$activeSearch',
         '$favorite',
         '$estimate',
-        function ($scope, $activeSearch, $favorite, $estimate) {
+        '$timeout',
+        function ($scope, $activeSearch, $favorite, $estimate, $timeout) {
             var estimate, plannerOptions = {
                 before: 0,
                 after: 5
@@ -15,7 +16,8 @@ angular.module('nextBartApp')
             var favorite = $favorite.get();
             var station = {
                 origin: null,
-                destination: null
+                destination: null,
+                results: []
             };
 
             function populate() {
@@ -61,35 +63,37 @@ angular.module('nextBartApp')
             }
 
             function searchBart() {
-                $estimate
-                    .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
-                    .then(function (results) {
-                        $scope.travel.results = results.data.root;
-                        try {
-                            $activeSearch.setRoutes(results.data.root.schedule.request.trip);
-                            if ($scope.travel.results.schedule.request.trip.length) {
-                                var leg = $scope.travel.results.schedule.request.trip[0].leg;
-                                if (leg.length) {
-                                    leg = leg[0];
+                $timeout(function () {
+                    $estimate
+                        .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
+                        .then(function (results) {
+                            $scope.travel.results = results.data.root;
+                            try {
+                                $activeSearch.setRoutes(results.data.root.schedule.request.trip);
+                                if ($scope.travel.results.schedule.request.trip.length) {
+                                    var leg = $scope.travel.results.schedule.request.trip[0].leg;
+                                    if (leg.length) {
+                                        leg = leg[0];
+                                    }
+                                    var time = new Date(leg._origTimeDate + ' ' + leg._origTimeMin);
+                                    var curTime = new Date();
+                                    var seconds = Math.round((time - curTime) / (1000));
+                                    var minutes = seconds / 60;
+                                    if (minutes > 0) {
+                                        $scope.travel.timer = Math.round(minutes);
+                                    }
+                                    else {
+                                        $scope.travel.timer = 'Missed? Search again!';
+                                    }
                                 }
-                                var time = new Date(leg._origTimeDate + ' ' + leg._origTimeMin);
-                                var curTime = new Date();
-                                var seconds = Math.round((time - curTime) / (1000));
-                                var minutes = seconds / 60;
-                                if (minutes > 0) {
-                                    $scope.travel.timer = Math.round(minutes);
-                                }
-                                else {
-                                    $scope.travel.timer = 'Missed? Search again!';
-                                }
+                            } catch (e) {
+                                $scope.travel.timer = 'Scheduler not loaded';
                             }
-                        } catch (e) {
-                            $scope.travel.timer = 'Scheduler not loaded';
-                        }
+                        });
+                    $favorite.set({
+                        origin: $scope.travel.origin,
+                        destination: $scope.travel.destination
                     });
-                $favorite.set({
-                    origin: $scope.travel.origin,
-                    destination: $scope.travel.destination
                 });
             }
 
@@ -97,7 +101,7 @@ angular.module('nextBartApp')
                 var temp = $scope.travel.origin;
                 $scope.travel.origin = $scope.travel.destination;
                 $scope.travel.destination = temp;
-                $scope.travel.results = null;
+                $scope.travel.results = [];
                 $activeSearch.setFrom($scope.travel.origin);
                 $activeSearch.setTo($scope.travel.destination);
             }
