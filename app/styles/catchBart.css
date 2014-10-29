@@ -68,8 +68,8 @@ input[type="color"] {
   animation: fadeOutRight 200ms;
 }
 .animate-rotate.ng-enter {
-  -webkit-animation: rotateIn 200ms;
-  animation: rotateIn 200ms;
+  -webkit-animation: rotateIn 400ms;
+  animation: rotateIn 400ms;
 }
 .animate-entrance.ng-enter {
   -webkit-animation: lightSpeedIn 200ms;
@@ -80,20 +80,20 @@ input[type="color"] {
   animation: lightSpeedOut 200ms;
 }
 .animate-bounce-left.ng-enter {
-  -webkit-animation: bounceInLeft 400ms;
-  animation: bounceInLeft 400ms;
+  -webkit-animation: bounceInLeft 1000ms;
+  animation: bounceInLeft 1000ms;
 }
 .animate-bounce-left.ng-leave {
-  -webkit-animation: bounceOutLeft 400ms;
-  animation: bounceOutLeft 400ms;
+  -webkit-animation: bounceOutLeft 1000ms;
+  animation: bounceOutLeft 1000ms;
 }
 .animate-bounce-right.ng-enter {
-  -webkit-animation: bounceInRight 400ms;
-  animation: bounceInRight 400ms;
+  -webkit-animation: bounceInRight 1000ms;
+  animation: bounceInRight 1000ms;
 }
 .animate-bounce-right.ng-leave {
-  -webkit-animation: bounceOutRight 400ms;
-  animation: bounceOutRight 400ms;
+  -webkit-animation: bounceOutRight 1000ms;
+  animation: bounceOutRight 1000ms;
 }
 *,
 *:before,
