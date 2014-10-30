@@ -25,7 +25,10 @@ angular.module('nextBartApp')
                 };
                 $calculator.$nearest(bart);
                 $scope.bart = bart;
+                $scope.loading = false;
             }
+
+            $scope.loading = true;
 
             $geocode
                 .geocode($scope)
@@ -34,6 +37,7 @@ angular.module('nextBartApp')
                     getStations(findBartStation);
                 },
                 function (reason) {
+                    $scope.loading = false;
                     $scope.reason = reason;
                 });
 

@@ -10,7 +10,7 @@ angular.module('nextBartApp')
         function ($scope, $activeSearch, $favorite, $estimate, $timeout) {
             var estimate, plannerOptions = {
                 before: 0,
-                after: 5
+                after: 4
             };
 
             var favorite = $favorite.get();
@@ -67,6 +67,7 @@ angular.module('nextBartApp')
                     $estimate
                         .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                         .then(function (results) {
+                            $scope.loading = false;
                             $scope.travel.results = results.data.root;
                             try {
                                 $activeSearch.setRoutes(results.data.root.schedule.request.trip);
@@ -83,7 +84,7 @@ angular.module('nextBartApp')
                                         $scope.travel.timer = Math.round(minutes);
                                     }
                                     else {
-                                        $scope.travel.timer = 'Missed? Search again!';
+                                        $scope.travel.timer = 'Missed?';
                                     }
                                 }
                             } catch (e) {
@@ -107,6 +108,7 @@ angular.module('nextBartApp')
             }
 
             //Scope Variables
+            $scope.loading = true;
             populate();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;

@@ -66,6 +66,24 @@ angular
                         controller: 'MenuPanelCtrl'
                     }
                 }
+            })
+            .state('schedules', {
+                url: '/schedules',
+                views: {
+                    'HomeView@': {
+                        templateUrl: '/views/schedules.html',
+                        controller: 'SchedulesCtrl'
+                    }
+                }
+            })
+            .state('routes', {
+                url: '/routes',
+                views: {
+                    'HomeView@': {
+                        templateUrl: '/views/route-map.html',
+                        controller: 'RouteMapCtrl'
+                    }
+                }
             });
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
