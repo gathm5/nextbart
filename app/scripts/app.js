@@ -87,7 +87,7 @@ angular
             });
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
-    .run(function ($rootScope, $state) {
+    .run(function ($rootScope, $state, $timeout) {
         $rootScope.$state = $state;
         $rootScope.back = function () {
 
@@ -96,6 +96,14 @@ angular
             e.preventDefault();
             $state.go('menu');
         }, false);
-        //document.getElementsByClassName('container')[0].style.minHeight = document.body.clientHeight + 'px';
+
+        document.addEventListener('backbutton', function (e) {
+            e.preventDefault();
+            $rootScope.$broadcast('$alert', {
+                message: 'No back, Sorry!',
+                showTime: 60 * 1000
+            });
+        }, false);
+
         document.body.style.minHeight = document.body.clientHeight + 'px';
     });

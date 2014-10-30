@@ -325,6 +325,7 @@ module.exports = function (grunt) {
                             'config.xml',
                             '*.html',
                             'views/{,*/}*.html',
+                            'views/directives/{,*/}*.html',
                             'images/{,*/}*.{webp}',
                             'fonts/*',
                             'scripts/libs/xml2json.js'
