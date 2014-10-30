@@ -112,6 +112,12 @@ angular.module('nextBartApp')
             populate();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;
+            $scope.advanced = null;
+            $scope.showAdvancedOptions = function(){
+                $scope.advanced = {
+                    datetime: null
+                };
+            };
 
             //findEstimation();
 
