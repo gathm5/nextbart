@@ -87,7 +87,8 @@ angular
             });
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
-    .run(function ($rootScope, $state, $timeout) {
+    .run(function ($rootScope, $state) {
+        var backTimes = 0;
         $rootScope.$state = $state;
         $rootScope.back = function () {
 
@@ -99,10 +100,13 @@ angular
 
         document.addEventListener('backbutton', function (e) {
             e.preventDefault();
+            if (backTimes === 1) {
+                navigator.app.exitApp();
+            }
             $rootScope.$broadcast('$alert', {
-                message: 'No back, Sorry!',
-                showTime: 60 * 1000
+                message: 'Press back again to exit!'
             });
+            backTimes += 1;
         }, false);
 
         document.body.style.minHeight = document.body.clientHeight + 'px';

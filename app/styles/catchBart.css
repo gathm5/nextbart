@@ -96,12 +96,12 @@ input[type="color"] {
   animation: bounceOutRight 1000ms;
 }
 .animate-fade-up.ng-enter {
-  -webkit-animation: fadeInUp 1000ms;
-  animation: fadeInUp 1000ms;
+  -webkit-animation: fadeInUp 400ms;
+  animation: fadeInUp 400ms;
 }
 .animate-fade-up.ng-leave {
-  -webkit-animation: fadeOutUp 1000ms;
-  animation: fadeOutUp 1000ms;
+  -webkit-animation: fadeOutUp 400ms;
+  animation: fadeOutUp 400ms;
 }
 *,
 *:before,
@@ -275,9 +275,11 @@ li {
 }
 .web-intent .intent .message {
   padding: 10px 12px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid #fff;
+  background: rgba(59, 59, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  font-size: 0.8em;
 }
 .menu-panel li {
   padding: 10px 15px;
