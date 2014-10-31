@@ -6,8 +6,16 @@ angular.module('nextBartApp')
         function GeoLocationService($q) {
             // AngularJS will instantiate a singleton by calling "new" on this function
             return {
-                geocode: function ($scope) {
+                geocode: function ($scope, options) {
                     var deferred = $q.defer();
+                    var geoOptions = {
+                        enableHighAccuracy: true,
+                        timeout: 5000,
+                        maximumAge: 0
+                    };
+                    if (options && options.timeout) {
+                        geoOptions.timeout = options.timeout;
+                    }
                     if (navigator && navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(function (position) {
                             $scope.$apply(function () {
@@ -17,21 +25,21 @@ angular.module('nextBartApp')
                             switch (error.code) {
                                 case 1:
                                     $scope.$apply(function () {
-                                        deferred.reject('You have rejected access to your location');
+                                        deferred.reject('You have rejected access to your location!');
                                     });
                                     break;
                                 case 2:
                                     $scope.$apply(function () {
-                                        deferred.reject('Unable to determine your location');
+                                        deferred.reject('Unable to determine your location. Please try again!');
                                     });
                                     break;
                                 case 3:
                                     $scope.$apply(function () {
-                                        deferred.reject('Service timeout has been reached');
+                                        deferred.reject('Unable to determine your location. Please make sure your location setting is enabled!');
                                     });
                                     break;
                             }
-                        });
+                        }, geoOptions);
                     }
                     else {
                         $scope.$apply(function () {

@@ -10,6 +10,7 @@ angular.module('nextBartApp')
             var stations, position;
 
             function getStations(callback) {
+                // Called 1st
                 $station
                     .stations()
                     .then(function (data) {
@@ -19,6 +20,7 @@ angular.module('nextBartApp')
             }
 
             function findBartStation() {
+                // Called 2nd
                 var bart = {
                     position: position,
                     stations: stations
