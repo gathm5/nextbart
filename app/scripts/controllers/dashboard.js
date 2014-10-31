@@ -8,9 +8,11 @@ angular.module('nextBartApp')
         '$estimate',
         '$timeout',
         function ($scope, $activeSearch, $favorite, $estimate, $timeout) {
+            var date = new Date();
             var estimate, plannerOptions = {
                 before: 0,
-                after: 4
+                after: 4,
+                date: date.toLocaleDateString()
             };
 
             var favorite = $favorite.get();

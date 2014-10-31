@@ -87,27 +87,11 @@ angular
             });
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
-    .run(function ($rootScope, $state) {
-        var backTimes = 0;
+    .run(function ($rootScope, $state, $deviceEvents) {
         $rootScope.$state = $state;
         $rootScope.back = function () {
 
         };
-        document.addEventListener('menubutton', function (e) {
-            e.preventDefault();
-            $state.go('menu');
-        }, false);
-
-        document.addEventListener('backbutton', function (e) {
-            e.preventDefault();
-            if (backTimes === 1) {
-                navigator.app.exitApp();
-            }
-            $rootScope.$broadcast('$alert', {
-                message: 'Press back again to exit!'
-            });
-            backTimes += 1;
-        }, false);
-
+        $deviceEvents.init();
         document.body.style.minHeight = document.body.clientHeight + 'px';
     });

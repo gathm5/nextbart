@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('nextBartApp')
-  .controller('SchedulesCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('SchedulesCtrl', [
+        '$scope',
+        function ($scope) {
+            $scope.awesomeThings = [
+                'HTML5 Boilerplate',
+                'AngularJS',
+                'Karma'
+            ];
+        }
+    ]);

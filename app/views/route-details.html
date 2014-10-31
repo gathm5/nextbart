@@ -17,6 +17,9 @@
                     {{leg._destination}}
                     <div class="value">({{leg._destTimeMin}})</div>
                 </div>
+                <div data-ng-if="leg._transfercode">
+                    Transfer Code: {{leg._transfercode}}
+                </div>
                 <div class="center" data-ng-if="!$last">
                     Connect Via
                 </div>
