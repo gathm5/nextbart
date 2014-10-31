@@ -12,7 +12,7 @@ angular.module('nextBartApp')
             var estimate, plannerOptions = {
                 before: 0,
                 after: 4,
-                date: date.toLocaleDateString()
+                date: null
             };
 
             var favorite = $favorite.get();
@@ -66,6 +66,7 @@ angular.module('nextBartApp')
 
             function searchBart() {
                 $timeout(function () {
+                    plannerOptions.date = $scope.advanced.date;
                     $estimate
                         .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                         .then(function (results) {
@@ -114,11 +115,12 @@ angular.module('nextBartApp')
             populate();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;
-            $scope.advanced = null;
-            $scope.showAdvancedOptions = function(){
-                $scope.advanced = {
-                    datetime: null
-                };
+            $scope.advanced = {
+                show: false,
+                date: date.toLocaleDateString()
+            };
+            $scope.showAdvancedOptions = function () {
+                $scope.advanced.show = !$scope.advanced.show;
             };
 
             //findEstimation();
