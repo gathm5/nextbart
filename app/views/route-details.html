@@ -17,9 +17,6 @@
                     {{leg._destination}}
                     <div class="value">({{leg._destTimeMin}})</div>
                 </div>
-                <div data-ng-if="leg._transfercode">
-                    Transfer Code: {{leg._transfercode}}
-                </div>
                 <div class="center" data-ng-if="!$last">
                     Connect Via
                 </div>
@@ -87,6 +84,12 @@
                     <span class="value travel-time">
                         {{trip | travelTimeFilter}} <span class="small">mins</span>
                     </span>
+                </div>
+                <div data-ng-if="trip.leg._bikeflag === '1'">
+                    <i class="fa fa-bicycle"></i> Allowed <span class="type-success"><i class="fa fa-thumbs-up"></i></span>
+                </div>
+                <div data-ng-if="trip.leg._bikeflag !== '1'">
+                    <i class="fa fa-bicycle"></i> NOT Allowed <span class="type-failure"><i class="fa fa-thumbs-down"></i></span>
                 </div>
             </div>
         </div>
