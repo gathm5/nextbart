@@ -8,6 +8,7 @@ angular
         'ngRoute',
         'ngTouch',
         'ngAnimate',
+        'angularMoment',
         'ui.router'
     ])
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {

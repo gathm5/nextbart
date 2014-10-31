@@ -138,6 +138,9 @@ ul,
 li {
   list-style: none;
 }
+.center {
+  text-align: center;
+}
 .clock {
   text-align: center;
   padding: 5px;
@@ -348,11 +351,25 @@ li {
 .dashboard .view-next-set {
   padding: 10px;
 }
-.station-list input {
-  margin-bottom: 10px;
-  width: 100%;
+.station-list .input-station {
+  display: -webkit-flex;
+  display: flex;
+  background: #fff;
+  margin: 2px;
+}
+.station-list .input-station input {
+  -webkit-flex: 1;
+  flex: 1;
+  background: none;
   padding: 10px 5px;
-  border: 1px solid grey;
+  border: 0;
+  outline: none;
+}
+.station-list .input-station .side-icon {
+  width: 40px;
+  padding: 10px 0;
+  color: #245e94;
+  text-align: center;
 }
 .station-list ul {
   overflow-y: auto;
@@ -361,6 +378,14 @@ li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.find-bart-station .location-intermittent {
+  margin-top: 30px;
+}
+.find-bart-station .location-intermittent span {
+  font-weight: 700;
+  font-size: 0.9em;
+  padding: 10px;
 }
 .find-bart-station ul li {
   padding: 10px 15px;

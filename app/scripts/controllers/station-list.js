@@ -28,5 +28,11 @@ angular.module('nextBartApp')
                 }
                 $state.go('dashboard');
             };
+            $scope.locateStation = function () {
+                $rootScope.$broadcast('$alert', {
+                    message: 'locating your nearest station..',
+                    showTime: 5 * 1000
+                });
+            };
         }
     ]);

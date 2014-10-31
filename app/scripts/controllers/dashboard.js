@@ -8,7 +8,6 @@ angular.module('nextBartApp')
         '$estimate',
         '$timeout',
         function ($scope, $activeSearch, $favorite, $estimate, $timeout) {
-            var date = new Date();
             var estimate, plannerOptions = {
                 before: 0,
                 after: 4,
@@ -66,7 +65,8 @@ angular.module('nextBartApp')
 
             function searchBart() {
                 $timeout(function () {
-                    plannerOptions.date = $scope.advanced.date;
+                    var date = moment($scope.advanced.date).format('MM/DD/YYYY');
+                    plannerOptions.date = date;
                     $estimate
                         .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                         .then(function (results) {
@@ -117,7 +117,7 @@ angular.module('nextBartApp')
             $scope.travel.swap = swap;
             $scope.advanced = {
                 show: false,
-                date: date.toLocaleDateString()
+                date: new Date()
             };
             $scope.showAdvancedOptions = function () {
                 $scope.advanced.show = !$scope.advanced.show;

@@ -15,3 +15,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .cool-font {
   font-family: 'Courgette', cursive;
 }
+
+.clear-fix(){
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
