@@ -1,98 +1,97 @@
 .animation-blink {
-    -webkit-animation-name: blinker;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
 
-    animation-name: blinker;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes blinker {
-    0% {
-        opacity: 1.0;
-    }
-    50% {
-        opacity: 0.0;
-    }
-    100% {
-        opacity: 1.0;
-    }
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
 
 @keyframes blinker {
-    0% {
-        opacity: 1.0;
-    }
-    50% {
-        opacity: 0.0;
-    }
-    100% {
-        opacity: 1.0;
-    }
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
 
 .animate-repeat {
-    &.ng-enter {
-        -webkit-animation: fadeInLeft 200ms;
-        animation: fadeInLeft 200ms;
-    }
-
-    &.ng-leave {
-        -webkit-animation: fadeOutRight 200ms;
-        animation: fadeOutRight 200ms;
-    }
+  &.ng-enter {
+    -webkit-animation: fadeIn 200ms;
+    animation: fadeIn 200ms;
+  }
+  &.ng-leave {
+    -webkit-animation: fadeOut 200ms;
+    animation: fadeOut 200ms;
+  }
 }
 
 .animate-rotate {
-    &.ng-enter {
-        -webkit-animation: rotateIn 400ms;
-        animation: rotateIn 400ms;
-    }
+  &.ng-enter {
+    -webkit-animation: rotateIn 400ms;
+    animation: rotateIn 400ms;
+  }
 }
 
 .animate-entrance {
-    &.ng-enter {
-        -webkit-animation: lightSpeedIn 200ms;
-        animation: lightSpeedIn 200ms;
-    }
-    &.ng-leave {
-        -webkit-animation: lightSpeedOut 200ms;
-        animation: lightSpeedOut 200ms;
-    }
+  &.ng-enter {
+    -webkit-animation: lightSpeedIn 200ms;
+    animation: lightSpeedIn 200ms;
+  }
+  &.ng-leave {
+    -webkit-animation: lightSpeedOut 200ms;
+    animation: lightSpeedOut 200ms;
+  }
 }
 
 .animate-bounce-left {
-    &.ng-enter{
-        -webkit-animation: bounceInLeft 1000ms;
-        animation: bounceInLeft 1000ms;
-    }
-    &.ng-leave{
-        -webkit-animation: bounceOutLeft 1000ms;
-        animation: bounceOutLeft 1000ms;
-    }
+  &.ng-enter {
+    -webkit-animation: bounceInLeft 1000ms;
+    animation: bounceInLeft 1000ms;
+  }
+  &.ng-leave {
+    -webkit-animation: bounceOutLeft 1000ms;
+    animation: bounceOutLeft 1000ms;
+  }
 }
 
 .animate-bounce-right {
-    &.ng-enter{
-        -webkit-animation: bounceInRight 1000ms;
-        animation: bounceInRight 1000ms;
-    }
-    &.ng-leave{
-        -webkit-animation: bounceOutRight 1000ms;
-        animation: bounceOutRight 1000ms;
-    }
+  &.ng-enter {
+    -webkit-animation: bounceInRight 1000ms;
+    animation: bounceInRight 1000ms;
+  }
+  &.ng-leave {
+    -webkit-animation: bounceOutRight 1000ms;
+    animation: bounceOutRight 1000ms;
+  }
 }
 
 .animate-fade-up {
-    &.ng-enter{
-        -webkit-animation: fadeInUp 400ms;
-        animation: fadeInUp 400ms;
-    }
-    &.ng-leave{
-        -webkit-animation: fadeOutDown 400ms;
-        animation: fadeOutDown 400ms;
-    }
+  &.ng-enter {
+    -webkit-animation: bounceIn 400ms;
+    animation: bounceIn 400ms;
+  }
+  &.ng-leave {
+    -webkit-animation: fadeOutDown 400ms;
+    animation: fadeOutDown 400ms;
+  }
 }

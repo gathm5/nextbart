@@ -60,12 +60,12 @@ input[type="color"] {
   }
 }
 .animate-repeat.ng-enter {
-  -webkit-animation: fadeInLeft 200ms;
-  animation: fadeInLeft 200ms;
+  -webkit-animation: fadeIn 200ms;
+  animation: fadeIn 200ms;
 }
 .animate-repeat.ng-leave {
-  -webkit-animation: fadeOutRight 200ms;
-  animation: fadeOutRight 200ms;
+  -webkit-animation: fadeOut 200ms;
+  animation: fadeOut 200ms;
 }
 .animate-rotate.ng-enter {
   -webkit-animation: rotateIn 400ms;
@@ -96,8 +96,8 @@ input[type="color"] {
   animation: bounceOutRight 1000ms;
 }
 .animate-fade-up.ng-enter {
-  -webkit-animation: fadeInUp 400ms;
-  animation: fadeInUp 400ms;
+  -webkit-animation: bounceIn 400ms;
+  animation: bounceIn 400ms;
 }
 .animate-fade-up.ng-leave {
   -webkit-animation: fadeOutDown 400ms;
@@ -284,12 +284,13 @@ li {
   text-align: center;
 }
 .web-intent .intent .message {
+  display: inline-block;
   max-width: 80%;
   padding: 10px 12px;
-  background: rgba(24, 24, 24, 0.9);
+  background: #181818;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   font-size: 0.8em;
 }
 .menu-panel li {
@@ -320,6 +321,9 @@ li {
 .dashboard .origin i {
   float: right;
 }
+.dashboard .origin.ng-click-active {
+  background: rgba(0, 0, 0, 0.4);
+}
 .dashboard .swap {
   padding: 10px;
   text-align: center;
@@ -327,17 +331,23 @@ li {
 .dashboard .destination {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
 }
 .dashboard .destination i {
   float: right;
 }
+.dashboard .destination.ng-click-active {
+  background: rgba(0, 0, 0, 0.4);
+}
 .dashboard .advanced-search .search-box {
   margin: 7.5px 5px;
   padding: 5px 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 15px;
+}
+.dashboard .advanced-search .search-box.ng-click-active {
+  background: rgba(0, 0, 0, 0.4);
 }
 .dashboard .advanced-search .search-contents {
   padding: 3px;
@@ -361,7 +371,7 @@ li {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .dashboard .travel-results li.ng-click-active .trip-divider {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
 }
 .dashboard .view-next-set {
   padding: 10px;
@@ -384,7 +394,11 @@ li {
   width: 40px;
   padding: 10px 0;
   color: #245e94;
+  font-size: 1.2em;
   text-align: center;
+}
+.station-list .input-station .side-icon.ng-click-active {
+  background: rgba(0, 0, 0, 0.1);
 }
 .station-list ul {
   overflow-y: auto;
@@ -393,6 +407,9 @@ li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.station-list ul li.ng-click-active {
+  background: rgba(0, 0, 0, 0.4);
 }
 .find-bart-station .location-intermittent {
   margin-top: 30px;

@@ -20,6 +20,7 @@
     "smarttabs": true,
     "globals": {
         "angular": true,
-        "X2JS": true
+        "X2JS": true,
+        "moment": true
     }
 }

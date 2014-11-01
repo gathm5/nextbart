@@ -1,31 +1,38 @@
 .station-list {
-    .input-station {
-        display: -webkit-flex;
-        display: flex;
-        background: #fff;
-        margin: 2px;
-        input {
-            -webkit-flex: 1;
-            flex: 1;
-            background: none;
-            padding: 10px 5px;
-            border: 0;
-            outline: none;
-        }
-        .side-icon {
-            width: 40px;
-            padding: 10px 0;
-            color: @color-navy;
-            text-align: center;
-        }
+  .input-station {
+    display: -webkit-flex;
+    display: flex;
+    background: #fff;
+    margin: 2px;
+    input {
+      -webkit-flex: 1;
+      flex: 1;
+      background: none;
+      padding: 10px 5px;
+      border: 0;
+      outline: none;
     }
+    .side-icon {
+      width: 40px;
+      padding: 10px 0;
+      color: @color-navy;
+      font-size: 1.2em;
+      text-align: center;
+      &.ng-click-active {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 
-    ul {
-        overflow-y: auto;
-        li {
-            padding: 10px 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
+  ul {
+    overflow-y: auto;
+    li {
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      &.ng-click-active {
+        background: rgba(0, 0, 0, 0.4);
+      }
     }
+  }
 }

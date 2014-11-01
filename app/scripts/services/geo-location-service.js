@@ -35,7 +35,7 @@ angular.module('nextBartApp')
                                     break;
                                 case 3:
                                     $scope.$apply(function () {
-                                        deferred.reject('Unable to determine your location. Please make sure your location setting is enabled!');
+                                        deferred.reject('Unable to determine your location. Please make sure your GPS is enabled!');
                                     });
                                     break;
                             }
