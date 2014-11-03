@@ -3,7 +3,7 @@
 angular.module('nextBartApp')
     .directive('travelTimeDisplay', function () {
         return {
-            template: '<span class="value travel-time"><span data-ng-if="hours"><span class="small">{{hours}} hrs</span></span><span class="small">, {{mins}} mins</span></span>',
+            templateUrl: '/views/directives/travel-time-display.html',
             restrict: 'E',
             replace: true,
             scope: {
