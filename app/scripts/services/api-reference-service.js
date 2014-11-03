@@ -86,6 +86,9 @@ angular.module('nextBartApp')
                     if (options.date) {
                         attach += '&date=' + options.date;
                     }
+                    if (options.time) {
+                        attach += '&time=' + options.time;
+                    }
                 }
                 return 'http://api.bart.gov/api/sched.aspx?cmd=' + mode + '&orig=' + origin + '&dest=' + destination + attach + '&key=' + key;
             }

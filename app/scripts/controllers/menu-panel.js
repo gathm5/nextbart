@@ -16,11 +16,6 @@ angular.module('nextBartApp')
                     state: 'location'
                 },
                 {
-                    title: 'Schedules',
-                    icon: 'fa-map-marker',
-                    state: 'schedules'
-                },
-                {
                     title: 'Route Map',
                     icon: 'fa-map-marker',
                     state: 'routes'

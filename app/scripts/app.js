@@ -81,8 +81,7 @@ angular
                 url: '/routes',
                 views: {
                     'HomeView@': {
-                        templateUrl: '/views/route-map.html',
-                        controller: 'RouteMapCtrl'
+                        templateUrl: '/views/route-map.html'
                     }
                 }
             });

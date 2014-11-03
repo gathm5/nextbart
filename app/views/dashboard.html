@@ -23,7 +23,7 @@
             <span>Advanced search</span>
         </div>
         <div class="search-contents" data-ng-show="advanced.show">
-            <input type="date" placeholder="Select Date" data-ng-model="advanced.date" class="date-time" />
+            <input type="datetime-local" placeholder="Select Date" data-ng-model="advanced.date" class="date-time"/>
         </div>
     </div>
     <button class="search-button button" data-ng-if="travel.origin && travel.destination"
@@ -50,6 +50,7 @@
                             </div>
                             <div class="inline center arrow">
                                 <i class="fa fa-long-arrow-right"></i>
+                                <i class="fa fa-square" data-ng-style="getColor(leg)"></i>
                             </div>
                             <div class="inline right text-right">
                                 {{leg._destination}}
@@ -71,9 +72,7 @@
                                     <span class="time-title label">
                                     Total Travel Time:
                                     </span>
-                                    <span class="value travel-time">
-                                        {{trip | travelTimeFilter}} <span class="small">mins</span>
-                                    </span>
+                                    <travel-time-display data-trip="trip"></travel-time-display>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +90,7 @@
                         </div>
                         <div class="inline center arrow">
                             <i class="fa fa-long-arrow-right"></i>
+                            <i class="fa fa-square" data-ng-style="getColor(trip.leg)"></i>
                         </div>
                         <div class="inline right text-right">
                         <span class="reach-title label">
@@ -113,9 +113,7 @@
                                 <span class="time-title label">
                                 Total Travel Time:
                                 </span>
-                                <span class="value travel-time">
-                                    {{trip | travelTimeFilter}} <span class="small">mins</span>
-                                </span>
+                                <travel-time-display data-trip="trip"></travel-time-display>
                             </div>
                         </div>
                     </div>

@@ -5,16 +5,17 @@ angular.module('nextBartApp')
         '$scope',
         '$station',
         '$activeSearch',
+        '$trainRoute',
         '$storage',
         '$geocode',
         '$calculator',
         '$state',
         '$stateParams',
         '$rootScope',
-        function ($scope, $station, $activeSearch, $storage, $geocode, $calculator, $state, $stateParams, $rootScope) {
+        function ($scope, $station, $activeSearch, $trainRoute, $storage, $geocode, $calculator, $state, $stateParams, $rootScope) {
             var mode = $stateParams.mode;
 
-            var stations, position;
+            var position;
 
             function findBartStation() {
                 var bart = {
@@ -68,5 +69,7 @@ angular.module('nextBartApp')
                         });
                     });
             };
+
+            $trainRoute.routes();
         }
     ]);

@@ -6,8 +6,9 @@ angular.module('nextBartApp')
         '$activeSearch',
         '$favorite',
         '$estimate',
+        '$trainRoute',
         '$timeout',
-        function ($scope, $activeSearch, $favorite, $estimate, $timeout) {
+        function ($scope, $activeSearch, $favorite, $estimate, $trainRoute, $timeout) {
             var estimate, plannerOptions = {
                 before: 0,
                 after: 4,
@@ -18,7 +19,8 @@ angular.module('nextBartApp')
             var station = {
                 origin: null,
                 destination: null,
-                results: []
+                results: [],
+                routes: null
             };
 
             function populate() {
@@ -63,10 +65,24 @@ angular.module('nextBartApp')
                 }
             }
 
+            function routeLines() {
+                $trainRoute
+                    .routes()
+                    .then(function (routes) {
+                        station.routes = routes.data.root.routes.route;
+                    });
+            }
+
             function searchBart() {
                 $timeout(function () {
-                    var date = moment($scope.advanced.date).format('MM/DD/YYYY');
-                    plannerOptions.date = date;
+                    var date = moment($scope.advanced.date);
+                    plannerOptions.date = date.format('MM/DD/YYYY');
+                    plannerOptions.time = date.format('h:mm+a');
+                    $trainRoute
+                        .routes()
+                        .then(function (routes) {
+                            $scope.routes = routes;
+                        });
                     $estimate
                         .planner($scope.travel.origin.abbr, $scope.travel.destination.abbr, 'depart', plannerOptions)
                         .then(function (results) {
@@ -113,6 +129,7 @@ angular.module('nextBartApp')
             //Scope Variables
             $scope.loading = true;
             populate();
+            routeLines();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;
             $scope.advanced = {
@@ -121,6 +138,18 @@ angular.module('nextBartApp')
             };
             $scope.showAdvancedOptions = function () {
                 $scope.advanced.show = !$scope.advanced.show;
+            };
+            $scope.getColor = function (leg) {
+                for (var i in station.routes) {
+                    if (station.routes[i].routeID === leg._line) {
+                        return {
+                            color: station.routes[i].color
+                        };
+                    }
+                }
+                return {
+                    display: 'none'
+                };
             };
 
             //findEstimation();

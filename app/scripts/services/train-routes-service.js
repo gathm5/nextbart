@@ -9,7 +9,8 @@ angular.module('nextBartApp')
             return {
                 routes: function () {
                     return $utilities.$ajax({
-                        url: $api.routes()
+                        url: $api.routes(),
+                        cache: true
                     });
                 },
                 routeInfo: function (route) {

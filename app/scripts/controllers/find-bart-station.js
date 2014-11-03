@@ -6,7 +6,8 @@ angular.module('nextBartApp')
         '$geocode',
         '$station',
         '$calculator',
-        function ($scope, $geocode, $station, $calculator) {
+        '$window',
+        function ($scope, $geocode, $station, $calculator, $window) {
             var stations, position;
 
             function getStations(callback) {
@@ -30,7 +31,12 @@ angular.module('nextBartApp')
                 $scope.loading = false;
             }
 
+            function openInMaps(station) {
+                $window.open('https://www.google.com/maps/place/' + station.name + '+bart+station', '_system');
+            }
+
             $scope.loading = true;
+            $scope.openInMaps = openInMaps;
 
             $geocode
                 .geocode($scope)
