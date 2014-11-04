@@ -6,6 +6,7 @@ angular.module('nextBartApp')
         '$utilities',
         function StationInformationService($api, $utilities) {
             // AngularJS will instantiate a singleton by calling "new" on this function
+            var preloadedStations;
             return {
                 stations: function () {
                     return $utilities.$ajax({
@@ -17,7 +18,8 @@ angular.module('nextBartApp')
                     return $utilities.$ajax({
                         url: $api.schedules()
                     });
-                }
+                },
+                cachedStations: preloadedStations
             };
         }
     ]);

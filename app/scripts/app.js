@@ -87,11 +87,11 @@ angular
             });
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|geo|javascript):/);
     })
-    .run(function ($rootScope, $state, $deviceEvents) {
+    .run(function ($rootScope, $state, $deviceEvents, $station) {
         $rootScope.$state = $state;
-        $rootScope.back = function () {
-
-        };
+        $station.stations().then(function (stations) {
+            $station.cachedStations = stations;
+        });
         $deviceEvents.init();
         document.body.style.minHeight = document.body.clientHeight + 'px';
     });

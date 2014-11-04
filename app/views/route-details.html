@@ -7,7 +7,7 @@
             </div>
             <div class="leg" data-ng-repeat="leg in trip.leg">
                 <div class="inline left text-left">
-                    {{leg._origin}}
+                    {{leg._origin | stationName}}
                     <div class="value">({{leg._origTimeMin}})</div>
                 </div>
                 <div class="inline center arrow">
@@ -15,7 +15,7 @@
                     <i class="fa fa-square" data-ng-style="getColor(leg)"></i>
                 </div>
                 <div class="inline right text-right">
-                    {{leg._destination}}
+                    {{leg._destination | stationName}}
                     <div class="value">({{leg._destTimeMin}})</div>
                 </div>
                 <div class="center" data-ng-if="!$last">
@@ -49,7 +49,7 @@
     <div class="trip-divider" data-ng-if="!trip.leg.length">
         <div class="ba-depart-info">
             <div class="inline left text-left">
-                <div>{{trip.leg._origin}}</div>
+                <div>{{trip.leg._origin | stationName}}</div>
                 <span class="value">
                     {{trip.leg._origTimeMin}}
                 </span>
@@ -59,7 +59,7 @@
                 <i class="fa fa-square" data-ng-style="getColor(trip.leg)"></i>
             </div>
             <div class="inline right text-right">
-                <div>{{trip.leg._destination}}</div>
+                <div>{{trip.leg._destination | stationName}}</div>
                 <span class="value">
                     {{trip.leg._destTimeMin}}
                 </span>

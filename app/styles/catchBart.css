@@ -169,6 +169,7 @@ li {
   display: inline-block;
   width: 42.5%;
   margin-left: -4px;
+  vertical-align: top;
 }
 .trip-divider .ba-depart-info .arrow {
   width: 15%;

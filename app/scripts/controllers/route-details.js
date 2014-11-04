@@ -12,6 +12,7 @@ angular.module('nextBartApp')
             var route = $activeSearch.getRoute(idx);
             var station = {};
             $scope.trip = route;
+
             function routeLines() {
                 $trainRoute
                     .routes()
