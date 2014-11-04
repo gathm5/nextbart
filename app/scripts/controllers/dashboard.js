@@ -142,10 +142,10 @@ angular.module('nextBartApp')
                 searchBart(true);
             });
 
-            $scope.$on('Recall', function () {
+            $scope.$on('MISSED', function () {
                 //findEstimation();
             });
-            $scope.$on('Next', function () {
+            $scope.$on('NEXT', function () {
                 //findEstimation(true);
             });
             $scope.$on('Lapsed', function () {

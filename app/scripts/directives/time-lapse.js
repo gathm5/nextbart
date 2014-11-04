@@ -35,6 +35,7 @@ angular.module('nextBartApp')
                             if (duration.milliseconds() < 0) {
                                 scope.message = timePassed.message;
                                 $interval.cancel(counter);
+                                scope.$emit('MISSED');
                                 return;
                             }
                             scope.time = {
