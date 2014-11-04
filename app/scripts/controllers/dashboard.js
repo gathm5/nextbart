@@ -133,6 +133,10 @@ angular.module('nextBartApp')
 
             //findEstimation();
 
+            $scope.$on('CHECK', function () {
+
+            });
+
             $scope.$on('Recall', function () {
                 //findEstimation();
             });

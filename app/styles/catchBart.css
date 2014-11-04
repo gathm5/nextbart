@@ -378,7 +378,7 @@ li {
   padding: 10px 0;
 }
 .dashboard .travel-results li.ng-click-active .trip-divider {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
 }
 .dashboard .view-next-set {
   padding: 10px;

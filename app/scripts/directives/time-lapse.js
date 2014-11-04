@@ -24,6 +24,10 @@ angular.module('nextBartApp')
 
                         counter = $interval(function () {
                             duration = moment.duration(duration - interval, 'ms');
+                            var ms = duration.milliseconds();
+                            if (duration.seconds() === 30) {
+                                scope.$emit('CHECK');
+                            }
                             if (duration.milliseconds() < 0) {
                                 scope.message = timePassed.message;
                                 $interval.cancel(counter);
