@@ -65,7 +65,7 @@ angular.module('nextBartApp')
                 }
             }
 
-            function searchBart() {
+            function searchBart(flag) {
                 $timeout(function () {
                     var date = moment($scope.advanced.date);
                     plannerOptions.date = date.format('MM/DD/YYYY');
@@ -91,7 +91,8 @@ angular.module('nextBartApp')
                                         success: true,
                                         date: leg._origTimeDate,
                                         time: leg._origTimeMin,
-                                        message: 'Missed?'
+                                        message: 'Missed?',
+                                        blink: 'Arriving'
                                     };
                                 }
                             } catch (e) {
@@ -100,6 +101,10 @@ angular.module('nextBartApp')
                                     message: 'no timer',
                                     display: true
                                 };
+                                if (flag) {
+                                    $scope.travel.timer.blink = true;
+                                    $scope.travel.timer.message = 'arriving';
+                                }
                             }
                         });
                     $favorite.set({
@@ -134,7 +139,7 @@ angular.module('nextBartApp')
             //findEstimation();
 
             $scope.$on('CHECK', function () {
-
+                searchBart(true);
             });
 
             $scope.$on('Recall', function () {

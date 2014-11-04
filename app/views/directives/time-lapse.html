@@ -7,7 +7,7 @@
             {{time.minutes}}m<span class="colon animation-blink">:</span>{{time.seconds}}s
         </span>
     </div>
-    <div class="lapse message" data-ng-if="message">
+    <div class="lapse message" data-ng-if="message" data-ng-class="{'animation-blink':blink}">
         {{message}}
     </div>
 </div>

@@ -28,6 +28,10 @@ angular.module('nextBartApp')
                             if (duration.seconds() === 30) {
                                 scope.$emit('CHECK');
                             }
+                            else if (duration.seconds() < 30) {
+                                scope.message = timePassed.blink;
+                                scope.blink = true;
+                            }
                             if (duration.milliseconds() < 0) {
                                 scope.message = timePassed.message;
                                 $interval.cancel(counter);
@@ -55,6 +59,7 @@ angular.module('nextBartApp')
 
                     scope.$watch('timer', function (updatedTimer) {
                         if (updatedTimer) {
+                            scope.blink = false;
                             timePassed = updatedTimer;
                             scope.message = null;
                             $interval.cancel(counter);
