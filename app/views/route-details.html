@@ -37,10 +37,10 @@
                         <travel-time-display data-trip="trip"></travel-time-display>
                     </div>
                     <div data-ng-if="leg._bikeflag === '1'">
-                        <i class="fa fa-bicycle"></i> Allowed <span class="type-success"><i class="fa fa-thumbs-up"></i></span>
+                        <i class="fa fa-bicycle type-warning"></i> Allowed <i class="fa fa-thumbs-up type-success"></i>
                     </div>
                     <div data-ng-if="leg._bikeflag !== '1'">
-                        <i class="fa fa-bicycle"></i> NOT Allowed <span class="type-failure"><i class="fa fa-thumbs-down"></i></span>
+                        <i class="fa fa-bicycle type-warning"></i> NOT Allowed <i class="fa fa-thumbs-down type-failure"></i>
                     </div>
                 </div>
             </div>
@@ -49,9 +49,7 @@
     <div class="trip-divider" data-ng-if="!trip.leg.length">
         <div class="ba-depart-info">
             <div class="inline left text-left">
-                <span class="depart-title label">
-                    Starts:
-                </span>
+                <div>{{trip.leg._origin}}</div>
                 <span class="value">
                     {{trip.leg._origTimeMin}}
                 </span>
@@ -61,9 +59,7 @@
                 <i class="fa fa-square" data-ng-style="getColor(trip.leg)"></i>
             </div>
             <div class="inline right text-right">
-                <span class="reach-title label">
-                    Reaches:
-                </span>
+                <div>{{trip.leg._destination}}</div>
                 <span class="value">
                     {{trip.leg._destTimeMin}}
                 </span>
@@ -84,10 +80,10 @@
                     <travel-time-display data-trip="trip"></travel-time-display>
                 </div>
                 <div data-ng-if="trip.leg._bikeflag === '1'">
-                    <i class="fa fa-bicycle"></i> Allowed <span class="type-success"><i class="fa fa-thumbs-up"></i></span>
+                    <i class="fa fa-bicycle type-warning"></i> Allowed <i class="fa fa-thumbs-up type-success"></i>
                 </div>
                 <div data-ng-if="trip.leg._bikeflag !== '1'">
-                    <i class="fa fa-bicycle"></i> NOT Allowed <span class="type-failure"><i class="fa fa-thumbs-down"></i></span>
+                    <i class="fa fa-bicycle type-warning"></i> NOT Allowed <i class="fa fa-thumbs-down type-failure"></i>
                 </div>
             </div>
         </div>

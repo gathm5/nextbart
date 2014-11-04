@@ -141,6 +141,15 @@ li {
 .center {
   text-align: center;
 }
+.type-success {
+  color: #00ff00;
+}
+.type-failure {
+  color: #dc2939;
+}
+.type-warning {
+  color: #ff8e35;
+}
 [data-app-load-cloak],
 [app-load-cloak] {
   opacity: 0;
@@ -195,12 +204,6 @@ li {
   font-style: italic;
   font-size: 0.8em;
   font-weight: 300;
-}
-.type-success {
-  color: #00ff00;
-}
-.type-failure {
-  color: #dc2939;
 }
 .time-lapse {
   text-align: center;
