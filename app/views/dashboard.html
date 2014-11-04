@@ -31,8 +31,8 @@
         Search for schedules
     </button>
     <div>
-        <div class="time-lapse-container animate-rotate" data-ng-if="travel.timer">
-            <data-time-lapse data-timer="{{travel.timer}}"></data-time-lapse>
+        <div class="time-lapse-container animate-rotate" data-ng-if="travel.timer.success">
+            <data-time-lapse data-timer="travel.timer"></data-time-lapse>
         </div>
         <ul class="travel-results" data-ng-if="travel.results">
             <li data-ng-repeat="trip in travel.results.schedule.request.trip"

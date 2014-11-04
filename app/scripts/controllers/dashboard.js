@@ -95,19 +95,19 @@ angular.module('nextBartApp')
                                     if (leg.length) {
                                         leg = leg[0];
                                     }
-                                    var time = new Date(leg._origTimeDate + ' ' + leg._origTimeMin);
-                                    var curTime = new Date();
-                                    var seconds = Math.round((time - curTime) / (1000));
-                                    var minutes = seconds / 60;
-                                    if (minutes > 0) {
-                                        $scope.travel.timer = Math.round(minutes);
-                                    }
-                                    else {
-                                        $scope.travel.timer = 'Missed?';
-                                    }
+                                    $scope.travel.timer = {
+                                        success: true,
+                                        date: leg._origTimeDate,
+                                        time: leg._origTimeMin,
+                                        message: 'Missed?'
+                                    };
                                 }
                             } catch (e) {
-                                $scope.travel.timer = 'Scheduler not loaded';
+                                $scope.travel.timer = {
+                                    success: false,
+                                    message: 'no timer',
+                                    display: true
+                                };
                             }
                         });
                     $favorite.set({

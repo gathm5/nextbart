@@ -1,10 +1,13 @@
 <div class="time-lapse animate-rotate">
-    <div class="lapse" data-ng-if="!passed">
-        {{show.min}}
-        <span class="colon animation-blink">:</span>
-        {{show.sec}}
+    <div class="lapse" data-ng-if="!message">
+        <span data-ng-if="time.hours">
+            {{time.hours}}h<span class="colon animation-blink">:</span>{{time.minutes}}
+        </span>
+        <span data-ng-if="!time.hours">
+            {{time.minutes}}m<span class="colon animation-blink">:</span>{{time.seconds}}s
+        </span>
     </div>
-    <div class="lapse message" data-ng-if="passed">
+    <div class="lapse message" data-ng-if="message">
         {{passed}}
     </div>
 </div>

@@ -8,57 +8,48 @@ angular.module('nextBartApp')
                 templateUrl: '/views/directives/time-lapse.html',
                 restrict: 'E',
                 scope: {
-                    timer: '@'
+                    timer: '='
                 },
-                link: function postLink(scope, element, attr) {
-                    var counter, calculatedTime, time, timePassed = scope.timer, regex = /^\d+$/;
-
-                    function showTime(calculatedTime) {
-                        var min = 0, sec = 0;
-                        if (calculatedTime < 60) {
-                            sec = calculatedTime;
-                        }
-                        else {
-                            min = parseInt(calculatedTime / 60);
-                            sec = calculatedTime % 60;
-                        }
-                        sec = '00' + sec;
-                        scope.show = {
-                            min: min,
-                            sec: sec.slice(-2)
-                        };
-                    }
+                link: function postLink(scope) {
+                    var counter, timePassed = scope.timer, regex = /^\d+$/;
 
                     function execute() {
-                        if (!regex.test(timePassed)) {
-                            scope.$emit('Next');
-                            scope.passed = timePassed;
-                            return;
-                        }
-                        time = parseInt(timePassed) * 60;
-                        calculatedTime = time;
-                        showTime(calculatedTime);
-                        function countdown() {
-                            if (calculatedTime === 520) {
-                                scope.$emit('Recall');
-                            }
-                            if (calculatedTime <= 0) {
+                        var then = new Date(timePassed.date + ' ' + timePassed.time);
+                        var now = new Date();
+
+                        var diffTime = then - now;
+                        var duration = moment.duration(diffTime, 'ms');
+                        var interval = 1000;
+
+                        counter = $interval(function () {
+                            duration = moment.duration(duration - interval, 'ms');
+                            if (duration.milliseconds() < 0) {
+                                scope.message = timePassed.message;
                                 $interval.cancel(counter);
-                                scope.$emit('Lapsed');
                                 return;
                             }
-                            calculatedTime -= 1;
-                            scope.time = calculatedTime;
-                            showTime(calculatedTime);
-                        }
-
-                        counter = $interval(countdown, 1000);
+                            scope.time = {
+                                hours: duration.hours(),
+                                minutes: duration.minutes(),
+                                seconds: ('00' + duration.seconds()).slice(-2)
+                            };
+                        }, interval);
                     }
 
-                    execute();
+                    if (!timePassed.success) {
+                        if (timePassed.display) {
+                            scope.message = timePassed.message;
+                        }
+                        scope.$emit('Next');
+                        return;
+                    }
 
-                    attr.$observe('timer', function (timer) {
-                        timePassed = timer;
+                    scope.$on('$destroy', function () {
+                        $interval.cancel(counter);
+                    });
+
+                    scope.$watch('timer', function (updatedTimer) {
+                        timePassed = updatedTimer;
                         $interval.cancel(counter);
                         execute();
                     });
