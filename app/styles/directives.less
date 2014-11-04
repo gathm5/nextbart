@@ -9,45 +9,50 @@
   .cool-font;
 }
 
-.ba-depart-info {
-  .inline {
-    display: inline-block;
-    width: 42.5%;
-    margin-left: -4px;
-  }
-  .arrow {
-    width: 15%;
-    font-size: 1.2em;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-  }
-  .left {
-    text-align: left;
-  }
-  .right {
-    text-align: right;
-  }
-  .center {
-    text-align: center;
-  }
-  .label {
-    font-size: 0.9em;
-  }
-  .value {
-    font-size: 1em;
-    text-transform: lowercase;
-    color: @color-green;
-  }
-  .cost {
-    color: @color-yellow;
-  }
-  .travel-time {
-    color: @color-green;
-    font-weight: 700;
-    .small {
-      color: @color-orange;
-      font-style: italic;
-      font-size: 0.8em;
-      font-weight: 300;
+.trip-divider {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 5px 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  .ba-depart-info {
+    .inline {
+      display: inline-block;
+      width: 42.5%;
+      margin-left: -4px;
+    }
+    .arrow {
+      width: 15%;
+      font-size: 1.2em;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    }
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+    .center {
+      text-align: center;
+    }
+    .label {
+      font-size: 0.9em;
+    }
+    .value {
+      font-size: 1em;
+      text-transform: lowercase;
+      color: @color-green;
+    }
+    .cost {
+      color: @color-yellow;
+    }
+    .travel-time {
+      color: @color-green;
+      font-weight: 700;
+      .small {
+        color: @color-orange;
+        font-style: italic;
+        font-size: 0.8em;
+        font-weight: 300;
+      }
     }
   }
 }
@@ -161,5 +166,11 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
       font-size: 0.8em;
     }
+  }
+}
+
+.color-routes {
+  table {
+    margin: 15px auto;
   }
 }

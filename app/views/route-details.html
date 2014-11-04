@@ -12,6 +12,7 @@
                 </div>
                 <div class="inline center arrow">
                     <i class="fa fa-long-arrow-right"></i>
+                    <i class="fa fa-square" data-ng-style="getColor(leg)"></i>
                 </div>
                 <div class="inline right text-right">
                     {{leg._destination}}
@@ -57,6 +58,7 @@
             </div>
             <div class="inline center arrow">
                 <i class="fa fa-long-arrow-right"></i>
+                <i class="fa fa-square" data-ng-style="getColor(trip.leg)"></i>
             </div>
             <div class="inline right text-right">
                 <span class="reach-title label">
@@ -90,4 +92,5 @@
             </div>
         </div>
     </div>
+    <color-routes></color-routes>
 </div>

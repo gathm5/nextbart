@@ -2,8 +2,9 @@
 
 angular.module('nextBartApp')
     .directive('timeLapse', [
+        '$timeout',
         '$interval',
-        function ($interval) {
+        function ($timeout, $interval) {
             return {
                 templateUrl: '/views/directives/time-lapse.html',
                 restrict: 'E',
@@ -11,7 +12,7 @@ angular.module('nextBartApp')
                     timer: '='
                 },
                 link: function postLink(scope) {
-                    var counter, timePassed = scope.timer, regex = /^\d+$/;
+                    var counter, timePassed = scope.timer;
 
                     function execute() {
                         var then = new Date(timePassed.date + ' ' + timePassed.time);
@@ -24,7 +25,7 @@ angular.module('nextBartApp')
                         counter = $interval(function () {
                             duration = moment.duration(duration - interval, 'ms');
                             if (duration.milliseconds() < 0) {
-                                scope.message = timePassed.message || 'Missed ?';
+                                scope.message = timePassed.message;
                                 $interval.cancel(counter);
                                 return;
                             }
@@ -49,10 +50,12 @@ angular.module('nextBartApp')
                     });
 
                     scope.$watch('timer', function (updatedTimer) {
-                        timePassed = updatedTimer;
-                        scope.message = null;
-                        $interval.cancel(counter);
-                        execute();
+                        if (updatedTimer) {
+                            timePassed = updatedTimer;
+                            scope.message = null;
+                            $interval.cancel(counter);
+                            execute();
+                        }
                     });
                 }
             };

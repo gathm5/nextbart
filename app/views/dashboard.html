@@ -38,7 +38,8 @@
             <li data-ng-repeat="trip in travel.results.schedule.request.trip"
                 data-ng-click="$state.go('details',{id: $index})"
                 data-ng-class="{'animate-bounce-left': $even, 'animate-bounce-right': $odd}">
-                <div class="trip-divider" data-ng-if="trip.leg.length">
+                <ba-depart-info data-trip="trip"></ba-depart-info>
+                <!--<div class="trip-divider" data-ng-if="trip.leg.length">
                     <div class="ba-depart-info">
                         <div class="connection-information center">
                             This travel has a <i class="fa fa-arrows-h"></i> connection
@@ -117,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </li>
         </ul>
     </div>

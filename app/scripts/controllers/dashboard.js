@@ -65,14 +65,6 @@ angular.module('nextBartApp')
                 }
             }
 
-            function routeLines() {
-                $trainRoute
-                    .routes()
-                    .then(function (routes) {
-                        station.routes = routes.data.root.routes.route;
-                    });
-            }
-
             function searchBart() {
                 $timeout(function () {
                     var date = moment($scope.advanced.date);
@@ -129,7 +121,6 @@ angular.module('nextBartApp')
             //Scope Variables
             $scope.loading = true;
             populate();
-            routeLines();
             $scope.travel.search = searchBart;
             $scope.travel.swap = swap;
             $scope.advanced = {
@@ -138,18 +129,6 @@ angular.module('nextBartApp')
             };
             $scope.showAdvancedOptions = function () {
                 $scope.advanced.show = !$scope.advanced.show;
-            };
-            $scope.getColor = function (leg) {
-                for (var i in station.routes) {
-                    if (station.routes[i].routeID === leg._line) {
-                        return {
-                            color: station.routes[i].color
-                        };
-                    }
-                }
-                return {
-                    display: 'none'
-                };
             };
 
             //findEstimation();

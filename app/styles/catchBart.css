@@ -151,41 +151,46 @@ li {
   font-size: 1.4em;
   font-family: 'Courgette', cursive;
 }
-.ba-depart-info .inline {
+.trip-divider {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 5px 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.trip-divider .ba-depart-info .inline {
   display: inline-block;
   width: 42.5%;
   margin-left: -4px;
 }
-.ba-depart-info .arrow {
+.trip-divider .ba-depart-info .arrow {
   width: 15%;
   font-size: 1.2em;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-.ba-depart-info .left {
+.trip-divider .ba-depart-info .left {
   text-align: left;
 }
-.ba-depart-info .right {
+.trip-divider .ba-depart-info .right {
   text-align: right;
 }
-.ba-depart-info .center {
+.trip-divider .ba-depart-info .center {
   text-align: center;
 }
-.ba-depart-info .label {
+.trip-divider .ba-depart-info .label {
   font-size: 0.9em;
 }
-.ba-depart-info .value {
+.trip-divider .ba-depart-info .value {
   font-size: 1em;
   text-transform: lowercase;
   color: #00ff00;
 }
-.ba-depart-info .cost {
+.trip-divider .ba-depart-info .cost {
   color: #fffa32;
 }
-.ba-depart-info .travel-time {
+.trip-divider .ba-depart-info .travel-time {
   color: #00ff00;
   font-weight: 700;
 }
-.ba-depart-info .travel-time .small {
+.trip-divider .ba-depart-info .travel-time .small {
   color: #ff8e35;
   font-style: italic;
   font-size: 0.8em;
@@ -293,6 +298,9 @@ li {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   font-size: 0.8em;
 }
+.color-routes table {
+  margin: 15px auto;
+}
 .menu-panel li {
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
@@ -364,11 +372,6 @@ li {
 .dashboard .search-button {
   width: 100%;
   padding: 10px 0;
-}
-.dashboard .trip-divider {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 5px 5px 5px 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .dashboard .travel-results li.ng-click-active .trip-divider {
   background: rgba(0, 0, 0, 0.2);
