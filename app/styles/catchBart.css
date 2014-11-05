@@ -107,6 +107,10 @@ input[type="color"] {
   -webkit-animation: fadeOutDown 400ms;
   animation: fadeOutDown 400ms;
 }
+.animate-wobble.ng-enter {
+  -webkit-animation: wobble 400ms;
+  animation: wobble 400ms;
+}
 *,
 *:before,
 *:after {
@@ -233,6 +237,7 @@ li {
 }
 .back-button {
   background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 .back-button .button {
   background: rgba(0, 0, 0, 0.3);

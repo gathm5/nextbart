@@ -25,6 +25,7 @@ angular.module('nextBartApp')
                             };
                         }
                         scope.codes = routes;
+                        scope.allRoutes = allRoutes;
                     }
 
                     $trainRoute

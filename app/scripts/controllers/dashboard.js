@@ -40,31 +40,6 @@ angular.module('nextBartApp')
                 }
             }
 
-            function findEstimation(next) {
-                if ($scope.travel.origin) {
-                    $estimate
-                        .estimate($scope.travel.origin.abbr)
-                        .then(function (estimated) {
-                            var idx = 0;
-                            estimate = estimated.data.root.station;
-                            if (next) {
-                                idx = 1;
-                            }
-                            if (estimate.etd && angular.isArray(estimate.etd) && estimate.etd.length > 0) {
-                                //$scope.travel.destination = estimate.etd[idx].destination;
-                                $scope.travel.timer = estimate.etd[idx].estimate[idx].minutes;
-                            }
-                            else if (estimate.etd) {
-                                //$scope.travel.destination = estimate.etd.destination;
-                                $scope.travel.timer = estimate.etd.estimate.minutes;
-                            }
-                            else {
-                                $scope.travel.noSchedule = 'No barts';
-                            }
-                        });
-                }
-            }
-
             function searchBart() {
                 $timeout(function () {
                     var date = moment($scope.advanced.date);
@@ -87,7 +62,6 @@ angular.module('nextBartApp')
                                     legs = $scope.travel.results.schedule.request.trip[0].leg;
                                     if (legs.length) {
                                         leg = legs[0];
-                                        secondLeg = legs[1];
                                     }
                                     $scope.travel.timer = {
                                         success: true,
@@ -96,6 +70,10 @@ angular.module('nextBartApp')
                                         message: 'Missed?',
                                         blink: 'Arriving'
                                     };
+                                    legs = $scope.travel.results.schedule.request.trip[1].leg;
+                                    if (legs.length) {
+                                        secondLeg = legs[0];
+                                    }
                                     if (secondLeg) {
                                         $scope.travel.timer.second = {
                                             success: true,

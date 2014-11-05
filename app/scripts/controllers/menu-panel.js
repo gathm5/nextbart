@@ -21,26 +21,25 @@ angular.module('nextBartApp')
             $scope.menus = [
                 {
                     title: 'Dashboard',
-                    icon: 'fa-bus',
                     state: go('dashboard')
                 },
                 {
                     title: 'Nearest',
-                    icon: 'fa-map-marker',
                     state: go('location')
                 },
                 {
                     title: 'Route Map',
-                    icon: 'fa-map-marker',
                     state: go('routes')
                 },
                 {
                     title: 'Rate this App',
-                    icon: 'fa-star',
                     state: rateThis
                 }
             ];
 
-
+            var menuIcons = ['fa-bus', 'fa-map-marker', 'fa-map-marker', 'fa-star'];
+            for (var i = 0; i < $scope.menus.length; i += 1) {
+                $scope.menus[i].icon = menuIcons[i];
+            }
         }
     ]);
