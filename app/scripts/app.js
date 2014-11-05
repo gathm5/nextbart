@@ -81,7 +81,16 @@ angular
                 url: '/routes',
                 views: {
                     'HomeView@': {
-                        templateUrl: '/views/route-map.html'
+                        templateUrl: '/views/route-map.html',
+                        controller: function ($scope, $state) {
+                            $scope.back = {
+                                action: function () {
+                                    $state.go('menu');
+                                },
+                                label: 'back',
+                                title: 'Bart Catch'
+                            };
+                        }
                     }
                 }
             });

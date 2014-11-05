@@ -34,6 +34,14 @@ angular.module('nextBartApp')
                 };
             };
 
+            $scope.back = {
+                action: function () {
+                    $state.go('dashboard');
+                },
+                label: '',
+                title: 'Bart Route Details'
+            };
+
             routeLines();
         }
     ]);

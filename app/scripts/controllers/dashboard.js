@@ -81,11 +81,13 @@ angular.module('nextBartApp')
                             $scope.loading = false;
                             $scope.travel.results = results.data.root;
                             try {
+                                var leg, legs, secondLeg;
                                 $activeSearch.setRoutes(results.data.root.schedule.request.trip);
                                 if ($scope.travel.results.schedule.request.trip.length) {
-                                    var leg = $scope.travel.results.schedule.request.trip[0].leg;
-                                    if (leg.length) {
-                                        leg = leg[0];
+                                    legs = $scope.travel.results.schedule.request.trip[0].leg;
+                                    if (legs.length) {
+                                        leg = legs[0];
+                                        secondLeg = legs[1];
                                     }
                                     $scope.travel.timer = {
                                         success: true,
@@ -94,6 +96,15 @@ angular.module('nextBartApp')
                                         message: 'Missed?',
                                         blink: 'Arriving'
                                     };
+                                    if (secondLeg) {
+                                        $scope.travel.timer.second = {
+                                            success: true,
+                                            date: secondLeg._origTimeDate,
+                                            time: secondLeg._origTimeMin,
+                                            message: 'Missed?',
+                                            blink: 'Arriving'
+                                        };
+                                    }
                                 }
                             } catch (e) {
                                 $scope.travel.timer = {

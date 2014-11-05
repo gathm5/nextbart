@@ -243,6 +243,12 @@ li {
 .back-button .button.ng-click-active {
   background: rgba(0, 0, 0, 0.5);
 }
+.back-button .title {
+  font-family: 'Lobster', cursive;
+  float: right;
+  padding: 10px 20px 0 0;
+  font-size: 1.4em;
+}
 .spinner {
   height: 125px;
   width: 125px;

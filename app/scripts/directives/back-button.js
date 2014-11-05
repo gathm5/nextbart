@@ -1,13 +1,28 @@
 'use strict';
 
 angular.module('nextBartApp')
-    .directive('backButton', function () {
+    .directive('backButton', function ($state) {
         return {
             templateUrl: '/views/directives/back-button.html',
             restrict: 'E',
-            link: function postLink(scope, element, attr) {
-                scope.back = function () {
-                    scope.$eval(attr.go);
+            scope: {
+                back: '='
+            },
+            link: function postLink(scope) {
+                var back = scope.back;
+                if (!back) {
+                    back = {
+                        label: 'back',
+                        title: 'Bart Catch'
+                    };
+                }
+                scope.action = function () {
+                    if (!back.action) {
+                        back.action = function () {
+                            $state.go('menu');
+                        };
+                    }
+                    back.action();
                 };
             }
         };

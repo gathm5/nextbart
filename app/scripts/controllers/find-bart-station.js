@@ -37,6 +37,10 @@ angular.module('nextBartApp')
 
             $scope.loading = true;
             $scope.openInMaps = openInMaps;
+            $scope.back = {
+                title: 'Stations by your distance',
+                label: ''
+            };
 
             $geocode
                 .geocode($scope)
