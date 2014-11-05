@@ -68,8 +68,12 @@ input[type="color"] {
   animation: fadeOut 200ms;
 }
 .animate-rotate.ng-enter {
-  -webkit-animation: rotateIn 400ms;
-  animation: rotateIn 400ms;
+  -webkit-animation: flipInY 400ms;
+  animation: flipInY 400ms;
+}
+.animate-rotate.ng-leave {
+  -webkit-animation: flipOutY 400ms;
+  animation: flipOutY 400ms;
 }
 .animate-entrance.ng-enter {
   -webkit-animation: lightSpeedIn 200ms;
@@ -129,6 +133,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   height: 100%;
+  background: url('../images/intermiddent.png') 0 0 transparent;
+  background-size: 100%;
 }
 ul {
   margin: 0;
@@ -218,7 +224,7 @@ li {
   font-family: 'Courgette', cursive;
 }
 .time-lapse .lapse {
-  font-size: 1.9em;
+  font-size: 1.6em;
   margin-top: 30px;
 }
 .time-lapse .message {
@@ -377,6 +383,9 @@ li {
   width: 100%;
   padding: 10px 0;
 }
+.dashboard .travel-results {
+  margin: 5px 0;
+}
 .dashboard .travel-results li.ng-click-active .trip-divider {
   background: rgba(0, 0, 0, 0.4);
 }
@@ -409,6 +418,7 @@ li {
 }
 .station-list ul {
   overflow-y: auto;
+  margin: 10px 0 0;
 }
 .station-list ul li {
   padding: 10px 15px;

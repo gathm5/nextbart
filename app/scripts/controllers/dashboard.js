@@ -65,7 +65,7 @@ angular.module('nextBartApp')
                 }
             }
 
-            function searchBart(flag) {
+            function searchBart() {
                 $timeout(function () {
                     var date = moment($scope.advanced.date);
                     plannerOptions.date = date.format('MM/DD/YYYY');
@@ -101,10 +101,6 @@ angular.module('nextBartApp')
                                     message: 'no timer',
                                     display: true
                                 };
-                                if (flag) {
-                                    $scope.travel.timer.blink = true;
-                                    $scope.travel.timer.message = 'arriving';
-                                }
                             }
                         });
                     $favorite.set({
@@ -119,6 +115,7 @@ angular.module('nextBartApp')
                 $scope.travel.origin = $scope.travel.destination;
                 $scope.travel.destination = temp;
                 $scope.travel.results = [];
+                $scope.travel.timer = null;
                 $activeSearch.setFrom($scope.travel.origin);
                 $activeSearch.setTo($scope.travel.destination);
             }

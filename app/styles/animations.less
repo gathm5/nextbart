@@ -47,8 +47,12 @@
 
 .animate-rotate {
   &.ng-enter {
-    -webkit-animation: rotateIn 400ms;
-    animation: rotateIn 400ms;
+    -webkit-animation: flipInY 400ms;
+    animation: flipInY 400ms;
+  }
+  &.ng-leave {
+    -webkit-animation: flipOutY 400ms;
+    animation: flipOutY 400ms;
   }
 }
 

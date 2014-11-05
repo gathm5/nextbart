@@ -24,18 +24,23 @@ angular.module('nextBartApp')
 
                         counter = $interval(function () {
                             duration = moment.duration(duration - interval, 'ms');
-                            var ms = duration.milliseconds();
-                            if (duration.seconds() === 30) {
+                            if (duration.days() !== 0) {
+                                scope.hide = true;
+                                $interval.cancel(counter);
+                                return;
+                            }
+                            if (duration._milliseconds > 30 * 1000 && duration._milliseconds < 31 * 1000) {
                                 scope.$emit('CHECK');
                             }
-                            else if (duration.seconds() < 30) {
+                            else if (duration._milliseconds < 30 * 1000 && duration._milliseconds > 0) {
                                 scope.message = timePassed.blink;
                                 scope.blink = true;
                             }
-                            if (duration.milliseconds() < 0) {
+                            else if (duration._milliseconds < 0) {
                                 scope.message = timePassed.message;
                                 $interval.cancel(counter);
                                 scope.$emit('MISSED');
+                                scope.blink = false;
                                 return;
                             }
                             scope.time = {
@@ -60,6 +65,7 @@ angular.module('nextBartApp')
 
                     scope.$watch('timer', function (updatedTimer) {
                         if (updatedTimer) {
+                            scope.hide = false;
                             scope.blink = false;
                             timePassed = updatedTimer;
                             scope.message = null;
