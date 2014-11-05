@@ -21,10 +21,13 @@ angular.module('nextBartApp')
                         case 'details':
                         case 'stations':
                         case 'fare':
-                        case 'location':
                         case 'schedules':
                         case 'menu':
                             $state.go('dashboard');
+                            return;
+                        case 'routes':
+                        case 'location':
+                            $state.go('menu');
                             return;
                     }
 

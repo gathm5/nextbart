@@ -11,6 +11,14 @@ angular
         'angularMoment',
         'ui.router'
     ])
+    .constant('$config', {
+        app: {
+            name: 'Bart Catch'
+        },
+        package: {
+            name: 'com.lizt.app'
+        }
+    })
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
@@ -82,15 +90,7 @@ angular
                 views: {
                     'HomeView@': {
                         templateUrl: '/views/route-map.html',
-                        controller: function ($scope, $state) {
-                            $scope.back = {
-                                action: function () {
-                                    $state.go('menu');
-                                },
-                                label: 'back',
-                                title: 'Bart Catch'
-                            };
-                        }
+                        controller: 'RouteMapCtrl'
                     }
                 }
             });
