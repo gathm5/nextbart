@@ -16,7 +16,7 @@ angular
             name: 'Bart Catch'
         },
         package: {
-            name: 'com.lizt.app'
+            name: 'com.bartcatch.app'
         }
     })
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {

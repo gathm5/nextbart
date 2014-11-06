@@ -10,7 +10,7 @@ angular.module('nextBartApp')
                     $state.go('menu');
                 },
                 label: 'back',
-                title: 'Bart Catch'
+                title: 'Bart Map'
             };
         }
     ]);

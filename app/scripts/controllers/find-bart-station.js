@@ -7,7 +7,8 @@ angular.module('nextBartApp')
         '$station',
         '$calculator',
         '$window',
-        function ($scope, $geocode, $station, $calculator, $window) {
+        '$rootScope',
+        function ($scope, $geocode, $station, $calculator, $window, $rootScope) {
             var stations, position;
 
             function getStations(callback) {
@@ -47,7 +48,7 @@ angular.module('nextBartApp')
             $scope.openInMaps = openInMaps;
             $scope.back = {
                 title: 'Stations by your distance',
-                label: ''
+                label: 'back'
             };
 
             $geocode

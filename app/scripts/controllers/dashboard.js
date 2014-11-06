@@ -9,7 +9,7 @@ angular.module('nextBartApp')
         '$trainRoute',
         '$timeout',
         function ($scope, $activeSearch, $favorite, $estimate, $trainRoute, $timeout) {
-            var estimate, plannerOptions = {
+            var plannerOptions = {
                 before: 0,
                 after: 4,
                 date: null
@@ -40,6 +40,21 @@ angular.module('nextBartApp')
                 }
             }
 
+            function timerData(trip, idx) {
+                var leg = trip[idx].leg;
+                if (leg && leg.length) {
+                    leg = leg[0];
+                }
+                return {
+                    success: true,
+                    date: leg._origTimeDate,
+                    time: leg._origTimeMin,
+                    message: 'Missed?',
+                    blink: 'Arriving'
+                };
+            }
+
+
             function searchBart() {
                 $timeout(function () {
                     var date = moment($scope.advanced.date);
@@ -56,33 +71,12 @@ angular.module('nextBartApp')
                             $scope.loading = false;
                             $scope.travel.results = results.data.root;
                             try {
-                                var leg, secondLeg;
                                 $activeSearch.setRoutes(results.data.root.schedule.request.trip);
                                 if ($scope.travel.results.schedule.request.trip.length) {
-                                    leg = $scope.travel.results.schedule.request.trip[0].leg;
-                                    if (leg.length) {
-                                        leg = leg[0];
-                                    }
-                                    $scope.travel.timer = {
-                                        success: true,
-                                        date: leg._origTimeDate,
-                                        time: leg._origTimeMin,
-                                        message: 'Missed?',
-                                        blink: 'Arriving'
-                                    };
-                                    leg = $scope.travel.results.schedule.request.trip[1].leg;
-                                    if (leg.length) {
-                                        secondLeg = leg[0];
-                                    }
-                                    if (secondLeg) {
-                                        $scope.travel.timer.second = {
-                                            success: true,
-                                            date: secondLeg._origTimeDate,
-                                            time: secondLeg._origTimeMin,
-                                            message: 'Missed?',
-                                            blink: 'Arriving'
-                                        };
-                                    }
+                                    $scope.travel.timer = timerData(results.data.root.schedule.request.trip, 0);
+                                    $scope.travel.timer.second = timerData(results.data.root.schedule.request.trip, 1);
+                                    $scope.travel.timer.third = timerData(results.data.root.schedule.request.trip, 2);
+                                    $scope.travel.timer.fourth = timerData(results.data.root.schedule.request.trip, 3);
                                 }
                             } catch (e) {
                                 $scope.travel.timer = {

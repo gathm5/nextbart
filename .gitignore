@@ -6,3 +6,4 @@ app/bower_components
 .idea
 app/styles/*.css
 app/styles/*.css.map
+resources

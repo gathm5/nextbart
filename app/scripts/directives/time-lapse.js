@@ -41,7 +41,7 @@ angular.module('nextBartApp')
                                 $interval.cancel(counter);
                                 scope.$emit('MISSED');
                                 scope.blink = false;
-                                executeSecondLeg();
+                                executeNextLeg();
                                 return;
                             }
                             scope.time = {
@@ -52,15 +52,24 @@ angular.module('nextBartApp')
                         }, interval);
                     }
 
-                    function executeSecondLeg() {
+                    function executeNextLeg() {
                         $timeout(function () {
                             scope.hide = false;
                             scope.blink = false;
-                            timePassed = scope.timer.second;
                             scope.message = null;
                             $interval.cancel(counter);
+                            if (timePassed !== scope.timer.second) {
+                                timePassed = scope.timer.second;
+                            }
+                            else if (timePassed !== scope.timer.third) {
+                                timePassed = scope.timer.third;
+                            }
+                            else {
+                                timePassed = scope.timer.fourth;
+                            }
+
                             execute();
-                        }, 20 * 1000);
+                        }, 10 * 1000);
                     }
 
                     if (!timePassed.success) {

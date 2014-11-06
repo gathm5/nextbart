@@ -3,8 +3,7 @@
 angular.module('nextBartApp')
     .service('$favorite', [
         '$storage',
-        '$station',
-        function FavoriteRouteService($storage, $station) {
+        function FavoriteRouteService($storage) {
             // AngularJS will instantiate a singleton by calling "new" on this function
             var favorites = $storage.getData('favorites', $storage.PERSISTENT);
 

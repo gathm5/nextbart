@@ -11,7 +11,7 @@ angular.module('nextBartApp')
             function go(state) {
                 return function () {
                     $state.go(state);
-                }
+                };
             }
 
             function rateThis() {
