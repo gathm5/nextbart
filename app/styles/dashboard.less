@@ -1,7 +1,18 @@
 .dashboard {
   -webkit-transition: opacity 200ms ease-in;
   transition: opacity 200ms ease-in;
+    .menu {
+        padding: 10px;
+        margin: 2px;
+        float: left;
+        margin-top: -2em;
+        font-size: 1.2em;
+        &.ng-click-active {
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
   .origin {
+      margin-top: 5px;
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0.2);
