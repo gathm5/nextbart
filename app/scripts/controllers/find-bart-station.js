@@ -20,7 +20,10 @@ angular.module('nextBartApp')
                             callback();
                         }
                         else {
-                            $scope.bart = stations;
+                            $scope.noPos = true;
+                            $scope.bart = {
+                                stations: stations
+                            };
                         }
                     });
             }
