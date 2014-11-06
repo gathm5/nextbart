@@ -16,7 +16,12 @@ angular.module('nextBartApp')
                     .stations()
                     .then(function (data) {
                         stations = data.data.root.stations.station;
-                        callback();
+                        if (callback) {
+                            callback();
+                        }
+                        else {
+                            $scope.bart = stations;
+                        }
                     });
             }
 
@@ -50,7 +55,11 @@ angular.module('nextBartApp')
                 },
                 function (reason) {
                     $scope.loading = false;
-                    $scope.reason = reason;
+                    $rootScope.$broadcast('$alert', {
+                        message: reason,
+                        showTime: 3 * 1000
+                    });
+                    getStations(false);
                 });
 
         }
