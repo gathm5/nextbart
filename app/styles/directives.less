@@ -1,176 +1,181 @@
-[data-app-load-cloak], [app-load-cloak] {
-  opacity: 0;
+[data-screen-cloak], [screen-cloak] {
+    opacity: 0.01;
+    -webkit-transition: opacity 100ms;
+    transition: opacity 100ms;
+    &.screen-cloaked {
+        opacity: 1;
+    }
 }
 
 .clock {
-  text-align: center;
-  padding: 5px;
-  font-size: 1.4em;
-  .cool-font;
+    text-align: center;
+    padding: 5px;
+    font-size: 1.4em;
+    .cool-font;
 }
 
 .trip-divider {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 5px 5px 5px 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  .ba-depart-info {
-    .inline {
-      display: inline-block;
-      width: 42.5%;
-      margin-left: -4px;
-      vertical-align: top;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 5px 5px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    .ba-depart-info {
+        .inline {
+            display: inline-block;
+            width: 42.5%;
+            margin-left: -4px;
+            vertical-align: top;
+        }
+        .arrow {
+            width: 15%;
+            font-size: 1.2em;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+        .center {
+            text-align: center;
+        }
+        .label {
+            font-size: 0.9em;
+        }
+        .value {
+            font-size: 1em;
+            text-transform: lowercase;
+            color: @color-green;
+        }
+        .cost {
+            color: @color-yellow;
+        }
+        .travel-time {
+            color: @color-green;
+            font-weight: 700;
+            .small {
+                color: @color-orange;
+                font-style: italic;
+                font-size: 0.8em;
+                font-weight: 300;
+            }
+        }
     }
-    .arrow {
-      width: 15%;
-      font-size: 1.2em;
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-    }
-    .left {
-      text-align: left;
-    }
-    .right {
-      text-align: right;
-    }
-    .center {
-      text-align: center;
-    }
-    .label {
-      font-size: 0.9em;
-    }
-    .value {
-      font-size: 1em;
-      text-transform: lowercase;
-      color: @color-green;
-    }
-    .cost {
-      color: @color-yellow;
-    }
-    .travel-time {
-      color: @color-green;
-      font-weight: 700;
-      .small {
-        color: @color-orange;
-        font-style: italic;
-        font-size: 0.8em;
-        font-weight: 300;
-      }
-    }
-  }
 }
 
 .time-lapse {
-  text-align: center;
-  margin: 15px auto;
-  width: 150px;
-  height: 150px;
-  border: 15px solid rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) inset;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-  .cool-font;
-  .lapse {
-    font-size: 1.6em;
-    margin-top: 30px;
-  }
-  .message {
-    font-size: 1.4em;
-    margin-top: 15px;
-  }
+    text-align: center;
+    margin: 15px auto;
+    width: 150px;
+    height: 150px;
+    border: 15px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) inset;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    .cool-font;
+    .lapse {
+        font-size: 1.6em;
+        margin-top: 30px;
+    }
+    .message {
+        font-size: 1.4em;
+        margin-top: 15px;
+    }
 }
 
 .back-button {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-  .button {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px 15px;
-    display: inline-block;
-    margin: 5px;
-    &.ng-click-active {
-      background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    .button {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px 15px;
+        display: inline-block;
+        margin: 5px;
+        &.ng-click-active {
+            background: rgba(0, 0, 0, 0.5);
+        }
     }
-  }
-  .title {
-    font-family: @font-title;
-    float: right;
-    padding: 10px 20px 0 0;
-    font-size: 1.2em;
-  }
+    .title {
+        font-family: @font-title;
+        float: right;
+        padding: 10px 20px 0 0;
+        font-size: 1.2em;
+    }
 }
 
 .spinner {
-  height: 125px;
-  width: 125px;
-  margin: 20px auto;
-  position: relative;
-  -webkit-animation: rotation 0.6s infinite linear;
-  animation: rotation 0.6s infinite linear;
-  border-left: 10px solid rgba(0, 0, 0, 0.15);
-  border-right: 10px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 10px solid rgba(0, 0, 0, 0.15);
-  border-top: 10px solid rgba(0, 0, 0, 0.3);
-  border-radius: 100%;
+    height: 125px;
+    width: 125px;
+    margin: 20px auto;
+    position: relative;
+    -webkit-animation: rotation 0.6s infinite linear;
+    animation: rotation 0.6s infinite linear;
+    border-left: 10px solid rgba(0, 0, 0, 0.15);
+    border-right: 10px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 10px solid rgba(0, 0, 0, 0.15);
+    border-top: 10px solid rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
 }
 
 @-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-  }
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
 }
 
 @-moz-keyframes rotation {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(359deg);
-  }
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(359deg);
+    }
 }
 
 @-o-keyframes rotation {
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(359deg);
-  }
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(359deg);
+    }
 }
 
 @keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
 
 .web-intent {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  bottom: 0;
-  margin-bottom: 50px;
-  .intent {
-    text-align: center;
-    .message {
-      display: inline-block;
-      max-width: 80%;
-      padding: 10px 12px;
-      background: rgba(24, 24, 24, 1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-      font-size: 0.8em;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 50px;
+    .intent {
+        text-align: center;
+        .message {
+            display: inline-block;
+            max-width: 80%;
+            padding: 10px 12px;
+            background: rgba(24, 24, 24, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            font-size: 0.8em;
+        }
     }
-  }
 }
 
 .color-routes {
-  table {
-    margin: 15px auto;
-  }
+    table {
+        margin: 15px auto;
+    }
 }

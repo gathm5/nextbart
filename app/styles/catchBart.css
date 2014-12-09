@@ -165,9 +165,15 @@ li {
 .type-warning {
   color: #ff8e35;
 }
-[data-app-load-cloak],
-[app-load-cloak] {
-  opacity: 0;
+[data-screen-cloak],
+[screen-cloak] {
+  opacity: 0.01;
+  -webkit-transition: opacity 100ms;
+  transition: opacity 100ms;
+}
+[data-screen-cloak].screen-cloaked,
+[screen-cloak].screen-cloaked {
+  opacity: 1;
 }
 .clock {
   text-align: center;
