@@ -15,7 +15,7 @@ angular.module('nextBartApp')
                 template: function () {
                     var link = '<a class="map-link" ' +
                         'data-ng-href="{{prefix}}{{geo.gtfs_latitude}},{{geo.gtfs_longitude}}{{suffix}}" ' +
-                        'data-rel="external" data-ng-transclude target="_blank"></a>';
+                        'data-rel="external" data-ng-transclude target="_system"></a>';
                     return link;
                 },
                 restrict: 'E',
@@ -29,13 +29,13 @@ angular.module('nextBartApp')
                     switch (deviceType) {
                         case 'android':
                             scope.prefix = 'geo:';
-                            scope.suffix = '?q={{geo.name}}+bart+station';
+                            scope.suffix = '?q=' + scope.geo.name + '+bart+station';
                             break;
                         case 'ios':
                             /*scope.prefix = 'http://maps.apple.com/?q=';
                              scope.suffix = '&near={{geo.name}}+bart+station';*/
                             scope.prefix = 'javascript:window.open("http://maps.apple.com/?q=';
-                            scope.suffix = '", "_blank", "location=yes,toolbar=yes,closebuttoncaption=\'back\'")';
+                            scope.suffix = '", "_system", "location=yes,toolbar=yes,closebuttoncaption=\'back\'")';
                             break;
                         default:
                             scope.prefix = $config.map.linkType1;
