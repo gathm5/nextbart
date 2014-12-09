@@ -30,10 +30,6 @@ angular.module('nextBartApp')
                 {
                     title: 'Route Map',
                     state: go('routes')
-                },
-                {
-                    title: 'Rate this App',
-                    state: rateThis
                 }
             ];
 
