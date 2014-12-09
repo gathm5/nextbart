@@ -17,6 +17,10 @@ angular
         },
         package: {
             name: 'com.bartcatch.app'
+        },
+        map: {
+            linkType1: 'https://www.google.com/maps/dir/Current+Location/',
+            linkType2: 'https://maps.google.com/maps?saddr=Current+Location&dirflg=w&daddr='
         }
     })
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
